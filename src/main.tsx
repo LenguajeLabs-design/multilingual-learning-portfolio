@@ -294,19 +294,22 @@ function LiveTeacherApp() {
 }
 
 const strategyChallenges = [
-  { challenge: "Make a text accessible", symbol: "¶" },
-  { challenge: "Get students talking", symbol: "“" },
-  { challenge: "Teach vocabulary", symbol: "Aa" },
-  { challenge: "Support writing", symbol: "✎" },
-  { challenge: "Scaffold a complex task", symbol: "↗" },
-  { challenge: "Check understanding", symbol: "✓" },
-  { challenge: "Support a newcomer", symbol: "◎" },
-  { challenge: "Use home languages", symbol: "文" },
-  { challenge: "Co-teach effectively", symbol: "↔" },
-  { challenge: "Build independence", symbol: "→" },
+  { challenge: "Make a text accessible", symbol: "¶", moves: ["Preview key vocabulary with visuals", "Build background knowledge before reading", "Think aloud while reading a text"] },
+  { challenge: "Get students talking", symbol: "“", moves: ["Pause for Turn-and-Talk with sentence stems", "Use wait time intentionally", "Teach accountable talk stems"] },
+  { challenge: "Teach vocabulary", symbol: "Aa", moves: ["Teach vocabulary using gestures and actions", "Highlight cognates and cross-language word connections", "Build a shared word bank"] },
+  { challenge: "Support writing", symbol: "✎", moves: ["Use oral rehearsal before writing", "Deconstruct a mentor text", "Color-code parts of a paragraph"] },
+  { challenge: "Scaffold a complex task", symbol: "↗", moves: ["Chunk long teacher directions into smaller steps", "Use graphic organizers strategically", "Differentiate one task in three ways"] },
+  { challenge: "Check understanding", symbol: "✓", moves: ["Check understanding with quick response routines", "End with a two-minute oral recap", "Teach students to self-assess with a rubric"] },
+  { challenge: "Support a newcomer", symbol: "◎", moves: ["Model a picture walk before reading", "Use visual discussion supports", "Create an anchor chart with students"] },
+  { challenge: "Use home languages", symbol: "文", moves: ["Highlight cognates and cross-language word connections", "Invite and value multilingual contributions", "Teach students to use bilingual resources effectively"] },
+  { challenge: "Co-teach effectively", symbol: "↔", moves: ["Model Think-Pair-Share", "Model annotation while reading", "Model productive struggle"] },
+  { challenge: "Build independence", symbol: "→", moves: ["Teach students to ask clarifying questions", "Set language goals with students", "Gradually remove scaffolds"] },
 ];
 
 function StrategyPathfinder() {
+  const [activeChallenge, setActiveChallenge] = useState(0);
+  const selectedChallenge = strategyChallenges[activeChallenge];
+
   return (
     <div className="strategy-pathfinder" data-reveal>
       <div className="strategy-grid-heading">
@@ -317,13 +320,22 @@ function StrategyPathfinder() {
         <p>Choose the classroom challenge that feels most urgent. The guide will show you a small move you can make next.</p>
       </div>
       <div className="strategy-challenge-grid">
-        {strategyChallenges.map((item) => (
-          <a href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer" key={item.challenge}>
+        {strategyChallenges.map((item, index) => (
+          <button type="button" className={activeChallenge === index ? "is-active" : ""} aria-pressed={activeChallenge === index} onClick={() => setActiveChallenge(index)} key={item.challenge}>
             <span>{item.symbol}</span>
             <strong>{item.challenge}</strong>
             <small>Find useful moves <b aria-hidden="true">→</b></small>
-          </a>
+          </button>
         ))}
+      </div>
+      <div className="strategy-move-preview" aria-live="polite">
+        <div key={selectedChallenge.challenge}>
+          <span>Three moves to try</span>
+          <h4>{selectedChallenge.challenge}</h4>
+        </div>
+        <ol key={`${selectedChallenge.challenge}-moves`}>
+          {selectedChallenge.moves.map((move, index) => <li key={move}><span>{String(index + 1).padStart(2, "0")}</span><strong>{move}</strong></li>)}
+        </ol>
       </div>
       <div className="strategy-grid-foot">
         <span>10 classroom entry points · 52 research-informed strategies</span>
