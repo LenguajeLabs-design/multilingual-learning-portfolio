@@ -1540,6 +1540,13 @@ img {
   box-shadow: 0 2.3rem 6rem rgba(39, 46, 57, 0.12);
 }
 
+.teacher-live-demo:has(.live-frame.is-expanded),
+.family-live-demo:has(.live-frame.is-expanded) {
+  overflow: visible;
+  transition: none !important;
+  transform: none !important;
+}
+
 .family-live-bar,
 .family-live-bar > div {
   display: flex;
@@ -2659,7 +2666,7 @@ img {
 
 [data-reveal].is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @keyframes orbit-spin {
