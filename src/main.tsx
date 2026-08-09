@@ -293,44 +293,41 @@ function LiveTeacherApp() {
   );
 }
 
-const strategyPathways = [
-  { challenge: "Make a text accessible", symbol: "¶", moves: ["Preview key vocabulary with visuals", "Build background knowledge before reading", "Think aloud while reading a text"] },
-  { challenge: "Get students talking", symbol: "“", moves: ["Pause for Turn-and-Talk with sentence stems", "Use wait time intentionally", "Teach accountable talk stems"] },
-  { challenge: "Teach vocabulary", symbol: "Aa", moves: ["Preview key vocabulary with visuals", "Teach vocabulary using gestures and actions", "Highlight cognates and cross-language connections"] },
-  { challenge: "Support writing", symbol: "✎", moves: ["Use oral rehearsal before writing", "Deconstruct a mentor text", "Color-code parts of a paragraph"] },
+const strategyChallenges = [
+  { challenge: "Make a text accessible", symbol: "¶" },
+  { challenge: "Get students talking", symbol: "“" },
+  { challenge: "Teach vocabulary", symbol: "Aa" },
+  { challenge: "Support writing", symbol: "✎" },
+  { challenge: "Scaffold a complex task", symbol: "↗" },
+  { challenge: "Check understanding", symbol: "✓" },
+  { challenge: "Support a newcomer", symbol: "◎" },
+  { challenge: "Use home languages", symbol: "文" },
+  { challenge: "Co-teach effectively", symbol: "↔" },
+  { challenge: "Build independence", symbol: "→" },
 ];
 
 function StrategyPathfinder() {
-  const [activePath, setActivePath] = useState(0);
-  const pathway = strategyPathways[activePath];
-
   return (
     <div className="strategy-pathfinder" data-reveal>
-      <div className="strategy-challenges">
-        <p>Start with the classroom moment</p>
-        {strategyPathways.map((item, index) => (
-          <button type="button" className={activePath === index ? "is-active" : ""} aria-pressed={activePath === index} onClick={() => setActivePath(index)} key={item.challenge}>
+      <div className="strategy-grid-heading">
+        <div>
+          <p>Start with the moment</p>
+          <h3>What are you trying to do?</h3>
+        </div>
+        <p>Choose the classroom challenge that feels most urgent. The guide will show you a small move you can make next.</p>
+      </div>
+      <div className="strategy-challenge-grid">
+        {strategyChallenges.map((item) => (
+          <a href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer" key={item.challenge}>
             <span>{item.symbol}</span>
             <strong>{item.challenge}</strong>
-            <small>Find useful moves →</small>
-          </button>
+            <small>Find useful moves <b aria-hidden="true">→</b></small>
+          </a>
         ))}
       </div>
-      <div className="strategy-results" aria-live="polite">
-        <div className="strategy-results-heading" key={pathway.challenge}>
-          <span>Three moves to try</span>
-          <h3>{pathway.challenge}</h3>
-        </div>
-        <ol key={`moves-${pathway.challenge}`}>
-          {pathway.moves.map((move, index) => (
-            <li key={move}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{move}</p>
-              <small>{index === 0 ? "Before" : "During"}</small>
-            </li>
-          ))}
-        </ol>
-        <a href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer">Explore all 52 strategies ↗</a>
+      <div className="strategy-grid-foot">
+        <span>10 classroom entry points · 52 research-informed strategies</span>
+        <a href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer">Explore the complete guide ↗</a>
       </div>
     </div>
   );
