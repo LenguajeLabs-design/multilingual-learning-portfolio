@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><pattern id="g" width="96" height="96" patternUnits="userSpaceOnUse"><path d="M96 0H0v96" fill="none" stroke="#31568d" stroke-opacity=".14"/></pattern></defs>
+  <rect width="1200" height="630" fill="#f5f1e8"/><rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="1040" cy="120" r="220" fill="#78d9e8" fill-opacity=".22"/><circle cx="100" cy="600" r="260" fill="#df9b74" fill-opacity=".18"/>
+  <text x="76" y="88" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#2852a0">FEDERICO OROZCO</text>
+  <text x="72" y="260" font-family="Georgia, serif" font-size="92" font-weight="700" fill="#132441">Multilingual learning,</text>
+  <text x="72" y="358" font-family="Georgia, serif" font-size="92" font-style="italic" fill="#2852a0">made practical.</text>
+  <text x="76" y="472" font-family="Arial, sans-serif" font-size="30" fill="#35435a">Educator · Researcher · Product builder</text>
+  <path d="M76 536h1048" stroke="#132441" stroke-opacity=".22"/>
+  <text x="76" y="582" font-family="Arial, sans-serif" font-size="20" fill="#5d6878">Tools for teachers, families, students, and school systems</text>
+</svg>
