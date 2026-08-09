@@ -471,6 +471,20 @@ function App() {
                 See my approach <span aria-hidden="true">↗</span>
               </a>
             </div>
+            <a className="hero-person" href="#about" aria-label="About Federico Orozco">
+              <img
+                src={`${import.meta.env.BASE_URL}assets/federico-orozco-headshot.jpeg`}
+                alt=""
+                width="800"
+                height="800"
+              />
+              <span>
+                <small>Meet the person behind the work</small>
+                <strong>Federico Orozco</strong>
+                <em>Educator · Researcher · Product builder</em>
+              </span>
+              <b aria-hidden="true">↘</b>
+            </a>
             <p className="hero-proof">
               15+ years across international classrooms, teacher development, family communication,
               and multilingual learning systems.

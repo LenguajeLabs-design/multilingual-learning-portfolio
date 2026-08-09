@@ -339,6 +339,68 @@ img {
   line-height: 1.6;
 }
 
+.hero-person {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 32rem;
+  margin-top: 2.4rem;
+  color: #132441;
+}
+
+.hero-person img {
+  width: 6.5rem;
+  height: 6.5rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid rgba(19, 36, 65, 0.22);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.38);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-person > span {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.hero-person small {
+  color: #6b7788;
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hero-person strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.28rem;
+  font-weight: 500;
+}
+
+.hero-person em {
+  color: #53627a;
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.hero-person b {
+  align-self: end;
+  color: #285aa8;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.hero-person:hover img {
+  transform: scale(1.035);
+  box-shadow: 0 0 0 0.4rem rgba(120, 217, 232, 0.32);
+}
+
+.hero-person + .hero-proof {
+  margin-top: 1.5rem;
+}
+
 .ecosystem {
   --pointer-x: 0;
   --pointer-y: 0;
@@ -2775,6 +2837,20 @@ img {
 
   .hero-proof {
     margin-top: 2rem;
+  }
+
+  .hero-person {
+    grid-template-columns: 5.5rem 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .hero-person img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .hero-person b {
+    display: none;
   }
 
   .ecosystem {
