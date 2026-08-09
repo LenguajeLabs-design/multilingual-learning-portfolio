@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
@@ -216,6 +217,18 @@ function MentorTextStudio() {
   );
 }
 
+function ExpandedProductPreview({ title, src, allow, onClose }: { title: string; src: string; allow?: string; onClose: () => void }) {
+  return createPortal(
+    <div className="product-preview-modal" role="dialog" aria-modal="true" aria-label={`Expanded ${title}`}>
+      <iframe title={title} src={src} referrerPolicy="strict-origin-when-cross-origin" allow={allow} />
+      <button className="live-frame-close" type="button" onClick={onClose} autoFocus>
+        Close preview <span aria-hidden="true">×</span>
+      </button>
+    </div>,
+    document.body,
+  );
+}
+
 function LiveTeacherApp() {
   const [loaded, setLoaded] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -235,6 +248,7 @@ function LiveTeacherApp() {
   }, [expanded]);
 
   return (
+    <>
     <div className="teacher-live-demo" data-reveal>
       <div className="teacher-live-bar">
         <div className="mentor-brand">
@@ -252,7 +266,7 @@ function LiveTeacherApp() {
         <span>Try it here</span>
         Move from instructional context to an editable mentor text and a practical teaching move.
       </div>
-      <div className={`live-frame live-frame-teacher ${loaded ? "is-loaded" : ""} ${expanded ? "is-expanded" : ""}`} role={expanded ? "dialog" : undefined} aria-modal={expanded || undefined} aria-label={expanded ? "Expanded LinguaFlow Teacher preview" : undefined}>
+      <div className={`live-frame live-frame-teacher ${loaded ? "is-loaded" : ""}`}>
         <div className="live-frame-status" role="status">
           <span className="live-frame-pulse" aria-hidden="true" />
           <strong>Loading the live workspace…</strong>
@@ -266,19 +280,16 @@ function LiveTeacherApp() {
           allow="clipboard-write"
           onLoad={() => setLoaded(true)}
         />
-        {!expanded && loaded && (
+        {loaded && (
           <button className="live-frame-expand" type="button" onClick={() => setExpanded(true)} aria-expanded="false">
             <span>Explore the live workspace</span>
             <strong>Click to expand</strong>
           </button>
         )}
-        {expanded && (
-          <button className="live-frame-close" type="button" onClick={() => setExpanded(false)} autoFocus>
-            Close preview <span aria-hidden="true">×</span>
-          </button>
-        )}
       </div>
     </div>
+    {expanded && <ExpandedProductPreview title="LinguaFlow Teacher mentor-text workspace" src="https://www.readlinguaflow.com/" allow="clipboard-write" onClose={() => setExpanded(false)} />}
+    </>
   );
 }
 
@@ -412,6 +423,7 @@ function LiveFamilyGuide() {
   }, [expanded]);
 
   return (
+    <>
     <div className="family-live-demo" data-reveal>
       <div className="family-live-bar">
         <div>
@@ -429,7 +441,7 @@ function LiveFamilyGuide() {
         <span>Try it here</span>
         Select a level to see the real guide change across language domains, school supports, and home actions.
       </div>
-      <div className={`live-frame live-frame-family ${loaded ? "is-loaded" : ""} ${expanded ? "is-expanded" : ""}`} role={expanded ? "dialog" : undefined} aria-modal={expanded || undefined} aria-label={expanded ? "Expanded My Multilingual Family preview" : undefined}>
+      <div className={`live-frame live-frame-family ${loaded ? "is-loaded" : ""}`}>
         <div className="live-frame-status" role="status">
           <span className="live-frame-pulse" aria-hidden="true" />
           <strong>Loading the live family guide…</strong>
@@ -442,19 +454,16 @@ function LiveFamilyGuide() {
           referrerPolicy="strict-origin-when-cross-origin"
           onLoad={() => setLoaded(true)}
         />
-        {!expanded && loaded && (
+        {loaded && (
           <button className="live-frame-expand" type="button" onClick={() => setExpanded(true)} aria-expanded="false">
             <span>Explore the live family guide</span>
             <strong>Click to expand</strong>
           </button>
         )}
-        {expanded && (
-          <button className="live-frame-close" type="button" onClick={() => setExpanded(false)} autoFocus>
-            Close preview <span aria-hidden="true">×</span>
-          </button>
-        )}
       </div>
     </div>
+    {expanded && <ExpandedProductPreview title="My Multilingual Family guide" src="https://www.mymultilingualfamily.com/" onClose={() => setExpanded(false)} />}
+    </>
   );
 }
 
