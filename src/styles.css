@@ -16,6 +16,12 @@
   --line-light: rgba(7, 16, 30, 0.16);
 }
 
+/* Compact homepage mode: keep the overview readable and move deep product walkthroughs off the landing page. */
+.compact-project-links { display: flex; flex-wrap: wrap; gap: .8rem 1.3rem; margin-top: 1.5rem; }
+.compact-project-links a { color: inherit; font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.compact-project-links a:hover { color: var(--accent, #24468f); }
+.teacher-story, .family-story, .experience-section, .prototype-tail { display: none; }
+
 * {
   box-sizing: border-box;
 }

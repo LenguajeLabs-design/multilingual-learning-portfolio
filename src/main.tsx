@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
+import "./compact-ui.css";
 
 type EcosystemKey = "students" | "families" | "teachers" | "systems";
 
@@ -293,126 +294,6 @@ function LiveTeacherApp() {
   );
 }
 
-const strategyChallenges = [
-  { challenge: "Make a text accessible", symbol: "¶", moves: ["Preview key vocabulary with visuals", "Build background knowledge before reading", "Think aloud while reading a text"] },
-  { challenge: "Get students talking", symbol: "“", moves: ["Pause for Turn-and-Talk with sentence stems", "Use wait time intentionally", "Teach accountable talk stems"] },
-  { challenge: "Teach vocabulary", symbol: "Aa", moves: ["Teach vocabulary using gestures and actions", "Highlight cognates and cross-language word connections", "Build a shared word bank"] },
-  { challenge: "Support writing", symbol: "✎", moves: ["Use oral rehearsal before writing", "Deconstruct a mentor text", "Color-code parts of a paragraph"] },
-  { challenge: "Scaffold a complex task", symbol: "↗", moves: ["Chunk long teacher directions into smaller steps", "Use graphic organizers strategically", "Differentiate one task in three ways"] },
-  { challenge: "Check understanding", symbol: "✓", moves: ["Check understanding with quick response routines", "End with a two-minute oral recap", "Teach students to self-assess with a rubric"] },
-  { challenge: "Support a newcomer", symbol: "◎", moves: ["Model a picture walk before reading", "Use visual discussion supports", "Create an anchor chart with students"] },
-  { challenge: "Use home languages", symbol: "文", moves: ["Highlight cognates and cross-language word connections", "Invite and value multilingual contributions", "Teach students to use bilingual resources effectively"] },
-  { challenge: "Co-teach effectively", symbol: "↔", moves: ["Model Think-Pair-Share", "Model annotation while reading", "Model productive struggle"] },
-  { challenge: "Build independence", symbol: "→", moves: ["Teach students to ask clarifying questions", "Set language goals with students", "Gradually remove scaffolds"] },
-];
-
-function StrategyPathfinder() {
-  const [activeChallenge, setActiveChallenge] = useState(0);
-  const selectedChallenge = strategyChallenges[activeChallenge];
-
-  return (
-    <div className="strategy-pathfinder" data-reveal>
-      <div className="strategy-grid-heading">
-        <div>
-          <p>Start with the moment</p>
-          <h3>What are you trying to do?</h3>
-        </div>
-        <p>Choose the classroom challenge that feels most urgent. The guide will show you a small move you can make next.</p>
-      </div>
-      <div className="strategy-challenge-grid">
-        {strategyChallenges.map((item, index) => (
-          <button type="button" className={activeChallenge === index ? "is-active" : ""} aria-pressed={activeChallenge === index} onClick={() => setActiveChallenge(index)} key={item.challenge}>
-            <span>{item.symbol}</span>
-            <strong>{item.challenge}</strong>
-            <small>Find useful moves <b aria-hidden="true">→</b></small>
-          </button>
-        ))}
-      </div>
-      <div className="strategy-move-preview" aria-live="polite">
-        <div key={selectedChallenge.challenge}>
-          <span>Three moves to try</span>
-          <h4>{selectedChallenge.challenge}</h4>
-        </div>
-        <ol key={`${selectedChallenge.challenge}-moves`}>
-          {selectedChallenge.moves.map((move, index) => <li key={move}><span>{String(index + 1).padStart(2, "0")}</span><strong>{move}</strong></li>)}
-        </ol>
-      </div>
-      <div className="strategy-grid-foot">
-        <span>10 classroom entry points · 52 research-informed strategies</span>
-        <a href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer">Explore the complete guide ↗</a>
-      </div>
-    </div>
-  );
-}
-
-const ealDeskPaths = [
-  { moment: "During a lesson", need: "I need one support now", route: "Quick Tools", description: "Find a sentence frame, scaffold, or response option you can use immediately.", tags: ["Task", "WIDA level", "Response option"] },
-  { moment: "Choosing an approach", need: "I know the language need", route: "Strategy Bank", description: "Match a specific reading, writing, or speaking need to a practical teaching move.", tags: ["Language domain", "Learner need", "Teaching move"] },
-  { moment: "Planning ahead", need: "I’m planning a workshop", route: "Writing Toolkit", description: "See unit goals, language demands, scaffolds, and differentiation together.", tags: ["Unit goal", "Language demand", "Differentiation"] },
-];
-
-function EALDeskPath() {
-  const [activePath, setActivePath] = useState(0);
-  const path = ealDeskPaths[activePath];
-  return (
-    <div className="ealdesk-path" data-reveal>
-      <div className="ealdesk-paths">
-        <p>What do you need today?</p>
-        {ealDeskPaths.map((item, index) => (
-          <button type="button" className={activePath === index ? "is-active" : ""} aria-pressed={activePath === index} onClick={() => setActivePath(index)} key={item.need}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <small>{item.moment}</small>
-            <strong>{item.need}</strong>
-          </button>
-        ))}
-      </div>
-      <div className="ealdesk-converge" aria-live="polite">
-        <div className="curriculum-fragments" key={`fragments-${path.route}`}>
-          {path.tags.map((tag, index) => <span style={{ "--fragment": index } as React.CSSProperties} key={tag}>{tag}</span>)}
-        </div>
-        <Arrow direction="down" />
-        <article key={path.route}>
-          <span>One clear path</span>
-          <h3>{path.route}</h3>
-          <p>{path.description}</p>
-          <small>More support is not always better. Start with the one move that helps a learner begin.</small>
-        </article>
-      </div>
-    </div>
-  );
-}
-
-function ScaffoldTransformation() {
-  const [isBuilt, setIsBuilt] = useState(false);
-  return (
-    <div className={`scaffold-transform ${isBuilt ? "is-built" : ""}`}>
-      <div className="scaffold-input">
-        <div className="scaffold-window-label"><span>Teacher input</span><small>Rough notes are enough</small></div>
-        <div className="scaffold-context"><span>Grade 3</span><span>WIDA 1–2</span><span>Math</span></div>
-        <p>Students are comparing fractions with visual models. Include partner talk, key vocabulary, and a quick exit ticket.</p>
-        <button type="button" onClick={() => setIsBuilt((value) => !value)}>{isBuilt ? "Show rough notes" : "Build sample scaffold"} <Arrow /></button>
-        <small>Planning exemplar · No student information</small>
-      </div>
-      <div className="scaffold-output" aria-live="polite">
-        {!isBuilt ? (
-          <div className="scaffold-empty">
-            <span>Structured support appears here</span>
-            <p>Objectives · vocabulary · sentence frames · lesson sequence · assessment</p>
-          </div>
-        ) : (
-          <article>
-            <div className="scaffold-output-head"><span>Editable lesson support</span><strong>Fractions as Fair Shares</strong></div>
-            <div><span>Language objective</span><p>Students will name and compare fractions using half, third, and fourth.</p></div>
-            <div><span>Key vocabulary</span><p>fraction · equal parts · numerator · denominator</p></div>
-            <div><span>Sentence frame</span><p>“This fraction is bigger / smaller because ___.”</p></div>
-            <div><span>Teacher move</span><p>Rehearse each comparison orally before writing, then reduce the frame as independence grows.</p></div>
-          </article>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function LiveFamilyGuide() {
   const [loaded, setLoaded] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -597,14 +478,60 @@ function App() {
       <section className="work-intro" id="work" aria-labelledby="work-title">
         <div className="section-index section-index-dark" data-reveal>
           <span>02</span>
-          <p>Selected systems</p>
+          <p>Selected work</p>
         </div>
         <div data-reveal>
           <h2 id="work-title">Built from the classroom outward.</h2>
           <p>
-            The work begins with a teacher trying to make language visible—and grows into practical
-            systems for families, classrooms, and schools.
+            Two projects that make complex language-learning decisions clearer for teachers and
+            families.
           </p>
+          <div className="compact-project-links" aria-label="Selected projects">
+            <a href="https://www.readlinguaflow.com/" target="_blank" rel="noreferrer">LinguaFlow Teacher ↗</a>
+            <a href="https://lenguajelabs-design.github.io/scaffold" target="_blank" rel="noreferrer">Scaffold beta ↗</a>
+            <a href="https://www.mymultilingualfamily.com/" target="_blank" rel="noreferrer">My Multilingual Family ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="app-directory" aria-labelledby="directory-title">
+        <div className="directory-heading">
+          <div>
+            <p className="section-index-label">Project directory</p>
+            <h2 id="directory-title">Useful tools, made close to the work.</h2>
+          </div>
+          <p>Browse the projects by audience and stage. Open any one to see the work in context.</p>
+        </div>
+        <div className="app-grid">
+          <a className="app-card app-card-featured" href="https://www.readlinguaflow.com/" target="_blank" rel="noreferrer">
+            <span className="app-card-mark app-card-logo"><img src={`${import.meta.env.BASE_URL}assets/lingua-icon.png`} alt="LinguaFlow logo" /></span><span className="app-status">Live</span>
+            <h3>LinguaFlow Teacher</h3><p>Mentor texts and language analysis for purposeful classroom planning.</p><span className="app-meta">Teachers · Open project ↗</span>
+          </a>
+          <a className="app-card" href="https://www.mymultilingualfamily.com/" target="_blank" rel="noreferrer">
+            <span className="app-card-mark app-card-logo app-card-logo-square"><img src={`${import.meta.env.BASE_URL}assets/mmlf-logo.svg`} alt="My Multilingual Family logo" /></span><span className="app-status">Live</span>
+            <h3>My Multilingual Family</h3><p>A clearer guide to language development for families.</p><span className="app-meta">Families · Open project ↗</span>
+          </a>
+          <a className="app-card" href="https://lenguajelabs-design.github.io/scaffold" target="_blank" rel="noreferrer">
+            <span className="app-card-mark app-card-logo app-card-logo-light"><img src={`${import.meta.env.BASE_URL}assets/scaffold-logo.png`} alt="Scaffold logo" /></span><span className="app-status app-status-beta">Live beta</span>
+            <h3>Scaffold</h3><p>Turn rough teacher input into structured language support.</p><span className="app-meta">Teachers · Open beta ↗</span>
+          </a>
+          <a className="app-card" href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer">
+            <span className="app-card-mark app-card-logo"><img src={`${import.meta.env.BASE_URL}assets/lingua-strategies-logo.png`} alt="Lingua Strategies logo" /></span><span className="app-status">Live</span>
+            <h3>Lingua Strategies</h3><p>Research-informed moves for the classroom moment in front of you.</p><span className="app-meta">Teachers · Explore guide ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section className="compact-credentials" aria-labelledby="credentials-title">
+        <div className="credentials-heading">
+          <p className="section-index-label">Credentials</p>
+          <h2 id="credentials-title">Classroom depth. Systems perspective.</h2>
+        </div>
+        <div className="credentials-grid">
+          <div className="credential-chip"><span><strong>M.A. in TEFL</strong><small>Nova Southeastern University</small></span></div>
+          <div className="credential-chip"><span><strong>B.A. Italian Studies</strong><small>University of Illinois Chicago</small></span></div>
+          <div className="credential-chip"><span><strong>Professional development</strong><small>Continuing learning in language, teaching, and design</small></span></div>
+          <div className="credential-chip credential-chip-text"><span><strong>Additional qualifications</strong><small>CELTA · Teaching license · Child protection</small></span></div>
         </div>
       </section>
 
@@ -645,26 +572,26 @@ function App() {
         </div>
       </section>
 
-      <section className="strategies-story" aria-labelledby="strategies-title">
-        <div className="strategies-intro" data-reveal>
-          <div>
-            <p className="project-count">02 / Featured project</p>
-            <p className="project-kicker">Multilingual teaching field guide</p>
-          </div>
-          <h2 id="strategies-title">Know what to do tomorrow.</h2>
-          <div>
-            <p className="project-problem">Teachers often recognize the classroom challenge before they know which practical language-support move to try next.</p>
-            <p className="project-summary">Lingua Strategies organizes 52 research-informed moves around the moment in front of the teacher—without requiring a sign-up or a long professional-learning detour.</p>
-          </div>
+      <section className="scaffold-story" aria-labelledby="scaffold-title">
+        <div className="scaffold-heading" data-reveal>
+          <p className="project-count">03 / Live beta</p>
+          <p className="project-kicker">AI-assisted planning workspace</p>
+          <h2 id="scaffold-title">From rough ideas to teachable language support.</h2>
+          <p className="project-summary">
+            Scaffold is a live beta workspace that turns teacher input into structured lesson support
+            that can be reviewed, adapted, saved, and printed.
+          </p>
+          <a className="button button-light" href="https://lenguajelabs-design.github.io/scaffold" target="_blank" rel="noreferrer">
+            Try the Scaffold beta ↗
+          </a>
         </div>
-        <StrategyPathfinder />
       </section>
 
       <section className="family-story" aria-labelledby="family-title">
         <div className="family-story-top">
           <div className="family-story-copy" data-reveal>
-            <p className="project-count">03 / Flagship story</p>
-            <p className="project-kicker">Research → Family understanding → Everyday action</p>
+            <p className="project-count">02 / Flagship story</p>
+            <p className="project-kicker">Research → Family understanding</p>
             <h2 id="family-title">From scores to shared understanding.</h2>
             <p className="project-problem">
               Language data was being used, but its meaning was not always clear to the families and
@@ -672,8 +599,8 @@ function App() {
             </p>
             <p className="project-summary">
               My 2026 action research investigated that gap. It led to My Multilingual Family, a guide
-              that explains language development clearly, and then to LinguaFlow Family, which turns
-              that understanding into practical family action.
+              that explains language development clearly and gives families practical ways to support
+              the journey.
             </p>
             <a className="button button-ink" href="#family-preview">
               Follow the story <Arrow direction="down" />
@@ -688,7 +615,7 @@ function App() {
             </div>
             <span className="research-node research-node-a">Action research</span>
             <span className="research-node research-node-b">Family guide</span>
-            <span className="research-node research-node-c">Everyday action</span>
+            <span className="research-node research-node-c">Family action</span>
           </div>
         </div>
 
@@ -720,74 +647,8 @@ function App() {
           </p>
           <div>
             <a href="https://www.mymultilingualfamily.com/">Visit the family guide ↗</a>
-            <a href="https://lenguajelabs-design.github.io/LinguaFlow-Family/#/today">
-              Explore LinguaFlow Family ↗
-            </a>
           </div>
         </div>
-      </section>
-
-      <section className="ealdesk-story" aria-labelledby="ealdesk-title">
-        <div className="ealdesk-heading" data-reveal>
-          <div>
-            <p className="project-count">04 / Featured project</p>
-            <p className="project-kicker">Elementary EAL curriculum system</p>
-          </div>
-          <h2 id="ealdesk-title">Make the next teaching move clearer.</h2>
-          <div>
-            <p className="project-problem">Teachers need to connect literacy goals, language demands, learner proficiency, and practical scaffolds—but that knowledge is often spread across disconnected documents and tools.</p>
-            <p className="project-summary">EALDesk brings workshop planning, WIDA-informed supports, assessment guidance, translation practices, and classroom strategies into one teacher-facing system.</p>
-          </div>
-        </div>
-        <EALDeskPath />
-        <div className="ealdesk-actions" data-reveal>
-          <p><span>Read the task. Name the language need.</span> Choose one purposeful support.</p>
-          <a className="button button-ink" href="https://lenguajelabs-design.github.io/EALDesk-Elementary/" target="_blank" rel="noreferrer">Open EALDesk <Arrow /></a>
-        </div>
-      </section>
-
-      <section className="scaffold-story" aria-labelledby="scaffold-title">
-        <div className="scaffold-heading" data-reveal>
-          <div>
-            <p className="project-count">05 / Product experiment</p>
-            <p className="project-kicker">AI-assisted planning workspace</p>
-            <span className="beta-badge">Beta</span>
-          </div>
-          <h2 id="scaffold-title">From rough ideas to teachable language support.</h2>
-          <div>
-            <p className="project-problem">A teacher may know the content goal but still need time and specialist knowledge to design explicit language objectives, vocabulary, sentence frames, and differentiated participation.</p>
-            <p className="project-summary">Scaffold organizes teacher input into structured lesson support that can be reviewed, adapted, saved, and printed.</p>
-          </div>
-        </div>
-        <ScaffoldTransformation />
-        <div className="scaffold-actions" data-reveal>
-          <p><span>Technology serves judgment.</span> The teacher still decides what fits the learners, curriculum, and classroom.</p>
-          <div><span>Beta · Actively being refined</span><a href="https://lenguajelabs-design.github.io/scaffold/" target="_blank" rel="noreferrer">Try Scaffold Beta ↗</a></div>
-        </div>
-      </section>
-
-      <section className="focused-tools" aria-labelledby="focused-title">
-        <div className="focused-heading" data-reveal>
-          <div><p>Supporting tool</p><h2 id="focused-title">Smaller systems. Specific moments.</h2></div>
-          <p>Some problems call for a broad platform. Others need one carefully designed workflow that helps an educator move forward.</p>
-        </div>
-        <article className="compass-card" data-reveal>
-          <div className="compass-copy">
-            <span>Classroom Support Compass</span>
-            <h3>Move from an observed need to a practical first response.</h3>
-            <p>Compass organizes classroom concerns into clear support areas, universal strategies to try first, and more targeted options when additional support is needed.</p>
-            <a href="https://compass-lenguajelab.replit.app/ssis/" target="_blank" rel="noreferrer">Open current prototype ↗</a>
-          </div>
-          <div className="compass-flow" aria-label="Example support pathway">
-            <div className="compass-observation"><span>What are you seeing?</span><strong>Difficulty with phonics or decoding</strong></div>
-            <Arrow direction="down" />
-            <div className="compass-area"><span>Support area</span><strong>Literacy</strong></div>
-            <div className="compass-tiers">
-              <div><span>Tier 1 · Universal</span><p>Audio and read-along books</p><p>Visual writing supports</p></div>
-              <div><span>Tier 2 · Targeted</span><p>Small-group phonics</p><p>Multisensory practice</p></div>
-            </div>
-          </div>
-        </article>
       </section>
 
       <section className="experience-section" id="experience" aria-labelledby="experience-title">
@@ -858,7 +719,7 @@ function App() {
             </article>
             <article>
               <div className="credential-logo"><img src={`${import.meta.env.BASE_URL}assets/credentials/harvard-gse.png`} alt="Harvard Graduate School of Education" /></div>
-              <div><span>2022 — 2025</span><h3>Universal Design for Learning</h3><p>Explore · Apply · Differentiated Instruction Made Practical</p></div>
+              <div><span>Professional development</span><h3>Continuing learning in language, teaching, and design</h3><p>Ongoing professional learning</p></div>
             </article>
             <div className="qualification-list" aria-label="Additional qualifications">
               <span>CELTA</span>

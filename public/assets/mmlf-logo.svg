@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">My Multilingual Family</title>
+  <desc id="desc">A home containing two overlapping conversation bubbles.</desc>
+  <rect width="512" height="512" rx="128" fill="#142550"/>
+  <path d="M116 246L256 126L396 246" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M156 234V356C156 373.673 170.327 388 188 388H324C341.673 388 356 373.673 356 356V234" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M181 263C181 241.461 198.461 224 220 224H254C275.539 224 293 241.461 293 263V278C293 299.539 275.539 317 254 317H229L204 339V317H220C198.461 317 181 299.539 181 278V263Z" fill="#F4A8A6"/>
+  <path d="M250 288C250 266.461 267.461 249 289 249H318C339.539 249 357 266.461 357 288V303C357 324.539 339.539 342 318 342H301L280 360V342H289C267.461 342 250 324.539 250 303V288Z" fill="#D9E1F7"/>
+  <path d="M207 271H261M276 295H331" stroke="#142550" stroke-width="12" stroke-linecap="round" opacity=".82"/>
+</svg>
