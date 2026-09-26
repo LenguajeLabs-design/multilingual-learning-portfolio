@@ -357,6 +357,44 @@ function LiveFamilyGuide() {
   );
 }
 
+const portfolioApps = [
+  { name: "LinguaFlow Teacher", status: "Live", audience: "Teachers", description: "Mentor texts and language analysis for purposeful classroom planning.", href: "https://www.readlinguaflow.com/", asset: "lingua-icon.png", logoClass: "app-card-logo", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
+  { name: "My Multilingual Family", status: "Live", audience: "Families", description: "A clearer guide to language development for families.", href: "https://www.mymultilingualfamily.com/", asset: "mmlf-logo.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/family-reading-together.jpg", action: "Open project" },
+  { name: "Scaffold", status: "Live beta", audience: "Teachers", description: "Turn rough teacher input into structured language support.", href: "https://lenguajelabs-design.github.io/scaffold", asset: "scaffold-lockup.png", logoClass: "app-card-logo app-card-logo-light", image: "photography/classroom-teacher-students.jpg", action: "Open beta" },
+  { name: "Lingua Strategies", status: "Live", audience: "Teachers", description: "Research-informed moves for the classroom moment in front of you.", href: "https://lenguajelabs-design.github.io/Lingua-Strategies/", asset: "lingua-strategies-logo.png", logoClass: "app-card-logo", image: "photography/family-reading-together.jpg", action: "Explore guide" },
+  { name: "Classroom Compass", status: "Live", audience: "Teachers", description: "A practical co-created guide for navigating classroom decisions.", href: "https://lenguajelabs-design.github.io/classroom-compass/", asset: "https://lenguajelabs-design.github.io/classroom-compass/classroom-compass-mark.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
+];
+
+const leadershipContributions = [
+  "Make instructional decisions visible.",
+  "Strengthen family understanding and partnership.",
+  "Structure teacher planning and language support.",
+  "Translate research into professional learning.",
+  "Co-create practical classroom guidance.",
+];
+
+function LeadershipCaseStudies() {
+  return (
+    <div className="case-study-list" aria-label="Leadership case studies">
+      {portfolioApps.map((app, index) => (
+        <a className="case-study-row" href={app.href} key={app.name}>
+          <span className="case-study-identity">
+            <span className={`case-study-logo ${app.logoClass}`}>
+              <img src={app.asset.startsWith("http") ? app.asset : `${import.meta.env.BASE_URL}assets/${app.asset}`} alt={`${app.name} logo`} />
+            </span>
+            <span>
+              <strong>{app.name}</strong>
+              <small><i className={app.status === "Live beta" ? "is-beta" : ""} />{app.status} <b>·</b> {app.audience}</small>
+            </span>
+          </span>
+          <span className="case-study-contribution"><small>Leadership contribution</small><span>{leadershipContributions[index]}</span></span>
+          <span className="case-study-action">{app.action} <b aria-hidden="true">↗</b></span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
@@ -394,7 +432,7 @@ function App() {
           </a>
           <nav className="desktop-nav" aria-label="Primary navigation">
             <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
+            <a href="#leadership">Leadership</a>
             <a href="#approach">Approach</a>
             <a href="#about">About</a>
           </nav>
@@ -407,14 +445,14 @@ function App() {
 
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow hero-eyebrow">EAL educator · Multilingual learning designer</p>
+            <p className="eyebrow hero-eyebrow">English-language learning leader · EAL educator</p>
             <h1 id="hero-title">
-              Make language
-              <span>visible.</span>
+              Building stronger systems
+              <span>for multilingual learners.</span>
             </h1>
             <p className="hero-intro">
-              I turn complex language-learning needs into practical systems that help students
-              participate, families understand the journey, and teachers act with greater clarity.
+              I connect classroom practice, teacher development, family partnership, and practical
+              tools so English-language learning becomes more coherent across a school.
             </p>
             <div className="hero-actions">
               <a className="button button-light" href="#work">
@@ -434,7 +472,7 @@ function App() {
               <span>
                 <small>Meet the person behind the work</small>
                 <strong>Federico Orozco</strong>
-                <em>Educator · Researcher · Product builder</em>
+                <em>Educator · Program thinker · Learning designer</em>
               </span>
               <b aria-hidden="true">↘</b>
             </a>
@@ -475,16 +513,36 @@ function App() {
         </p>
       </section>
 
+      <section className="leadership-signal" id="leadership" aria-labelledby="leadership-title">
+        <div className="section-index" data-reveal>
+          <span>02</span>
+          <p>Leadership focus</p>
+        </div>
+        <div className="leadership-intro" data-reveal>
+          <h2 id="leadership-title">Coherence across language, learning, and people.</h2>
+          <p>
+            I help schools make the needs of multilingual learners visible—and turn that visibility
+            into shared practice, stronger support, and clearer next steps.
+          </p>
+        </div>
+        <div className="leadership-pillars" data-reveal>
+          <article><span>01</span><h3>Program coherence</h3><p>Connect language support across classrooms, grade levels, and the wider school experience.</p></article>
+          <article><span>02</span><h3>Teacher development</h3><p>Design practical professional learning that helps teachers notice language and act on it.</p></article>
+          <article><span>03</span><h3>Family partnership</h3><p>Make language development easier for families to understand, discuss, and support.</p></article>
+          <article><span>04</span><h3>Evidence into action</h3><p>Use learner needs, classroom insight, and research to guide thoughtful decisions.</p></article>
+        </div>
+      </section>
+
       <section className="work-intro" id="work" aria-labelledby="work-title">
         <div className="section-index section-index-dark" data-reveal>
-          <span>02</span>
-          <p>Selected work</p>
+          <span>03</span>
+          <p>Selected leadership work</p>
         </div>
         <div data-reveal>
-          <h2 id="work-title">Built from the classroom outward.</h2>
+          <h2 id="work-title">Ideas made useful for real school communities.</h2>
           <p>
-            Two projects that make complex language-learning decisions clearer for teachers and
-            families.
+            These projects show how I translate language-learning insight into tools, guidance, and
+            shared practice for teachers and families.
           </p>
           <div className="compact-project-links" aria-label="Selected projects">
             <a href="https://www.readlinguaflow.com/" target="_blank" rel="noreferrer">LinguaFlow Teacher ↗</a>
@@ -497,29 +555,12 @@ function App() {
       <section className="app-directory" aria-labelledby="directory-title">
         <div className="directory-heading">
           <div>
-            <p className="section-index-label">Project directory</p>
-            <h2 id="directory-title">Useful tools, made close to the work.</h2>
+            <p className="section-index-label">Leadership case studies</p>
+            <h2 id="directory-title">Five projects, five ways to strengthen language-learning systems.</h2>
           </div>
-          <p>Browse the projects by audience and stage. Open any one to see the work in context.</p>
+          <p>Explore the work by the leadership contribution it represents.</p>
         </div>
-        <div className="app-grid">
-          <a className="app-card app-card-featured" href="https://www.readlinguaflow.com/" target="_blank" rel="noreferrer">
-            <span className="app-card-mark app-card-logo"><img src={`${import.meta.env.BASE_URL}assets/lingua-icon.png`} alt="LinguaFlow logo" /></span><span className="app-status">Live</span>
-            <h3>LinguaFlow Teacher</h3><p>Mentor texts and language analysis for purposeful classroom planning.</p><span className="app-meta">Teachers · Open project ↗</span>
-          </a>
-          <a className="app-card" href="https://www.mymultilingualfamily.com/" target="_blank" rel="noreferrer">
-            <span className="app-card-mark app-card-logo app-card-logo-square"><img src={`${import.meta.env.BASE_URL}assets/mmlf-logo.svg`} alt="My Multilingual Family logo" /></span><span className="app-status">Live</span>
-            <h3>My Multilingual Family</h3><p>A clearer guide to language development for families.</p><span className="app-meta">Families · Open project ↗</span>
-          </a>
-          <a className="app-card" href="https://lenguajelabs-design.github.io/scaffold" target="_blank" rel="noreferrer">
-            <span className="app-card-mark app-card-logo app-card-logo-light"><img src={`${import.meta.env.BASE_URL}assets/scaffold-logo.png`} alt="Scaffold logo" /></span><span className="app-status app-status-beta">Live beta</span>
-            <h3>Scaffold</h3><p>Turn rough teacher input into structured language support.</p><span className="app-meta">Teachers · Open beta ↗</span>
-          </a>
-          <a className="app-card" href="https://lenguajelabs-design.github.io/Lingua-Strategies/" target="_blank" rel="noreferrer">
-            <span className="app-card-mark app-card-logo"><img src={`${import.meta.env.BASE_URL}assets/lingua-strategies-logo.png`} alt="Lingua Strategies logo" /></span><span className="app-status">Live</span>
-            <h3>Lingua Strategies</h3><p>Research-informed moves for the classroom moment in front of you.</p><span className="app-meta">Teachers · Explore guide ↗</span>
-          </a>
-        </div>
+        <LeadershipCaseStudies />
       </section>
 
       <section className="compact-credentials" aria-labelledby="credentials-title">
