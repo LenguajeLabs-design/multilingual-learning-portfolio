@@ -1,19 +1,19 @@
 :root {
-  color: #10161f;
-  background: #f2efe8;
+  color: #102642;
+  background: #f5f0e7;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --ink: #07101e;
-  --ink-soft: #101d32;
-  --paper: #f2efe8;
-  --paper-bright: #faf8f2;
-  --blue: #5f8cff;
-  --cyan: #78d9e8;
-  --violet: #a790ff;
-  --warm: #ffdf9f;
+  --ink: #102642;
+  --ink-soft: #173653;
+  --paper: #f5f0e7;
+  --paper-bright: #fbf8f2;
+  --blue: #9bafc4;
+  --cyan: #9bafc4;
+  --violet: #b59a67;
+  --warm: #b59a67;
   --line-dark: rgba(255, 255, 255, 0.16);
-  --line-light: rgba(7, 16, 30, 0.16);
+  --line-light: rgba(16, 38, 66, 0.16);
 }
 
 /* Compact homepage mode: keep the overview readable and move deep product walkthroughs off the landing page. */

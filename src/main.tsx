@@ -784,14 +784,14 @@ function App() {
         </div>
         <div className="about-copy" data-reveal>
           <p className="about-kicker">About Federico</p>
-          <h2 id="about-title">Educator first. Product builder because the work demanded it.</h2>
+          <h2 id="about-title">English-language leader. Builder of coherent systems.</h2>
           <p>
-            I’m an EAL educator and multilingual-learning designer with more than 15 years across
+            I’m an English-language learning leader and EAL educator with more than 15 years across
             international classrooms, teacher development, family communication, and learning systems.
           </p>
           <p>
-            I build practical tools when an important classroom need is clear but the next helpful
-            action is not. The work connects pedagogy, research, careful language, and product design.
+            I connect pedagogy, research, careful language, and practical design to help schools make
+            multilingual learning more coherent for students, teachers, and families.
           </p>
           <div className="about-links">
             <a className="button button-light" href="mailto:forozc1@gmail.com">
