@@ -361,7 +361,7 @@ const portfolioApps = [
   { name: "LinguaFlow Teacher", status: "Live", audience: "Teachers", description: "Mentor texts and language analysis for purposeful classroom planning.", href: "https://www.readlinguaflow.com/", asset: "lingua-icon.png", logoClass: "app-card-logo", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
   { name: "My Multilingual Family", status: "Live", audience: "Families", description: "A clearer guide to language development for families.", href: "https://www.mymultilingualfamily.com/", asset: "mmlf-logo.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/family-reading-together.jpg", action: "Open project" },
   { name: "Scaffold", status: "Live beta", audience: "Teachers", description: "Turn rough teacher input into structured language support.", href: "https://lenguajelabs-design.github.io/scaffold", asset: "scaffold-lockup.png", logoClass: "app-card-logo app-card-logo-light", image: "photography/classroom-teacher-students.jpg", action: "Open beta" },
-  { name: "Lingua Strategies", status: "Live", audience: "Teachers", description: "Research-informed moves for the classroom moment in front of you.", href: "https://lenguajelabs-design.github.io/Lingua-Strategies/", asset: "lingua-strategies-logo.png", logoClass: "app-card-logo", image: "photography/family-reading-together.jpg", action: "Explore guide" },
+  { name: "The Language Support Toolkit", status: "Live", audience: "Teachers", description: "Practical language supports and adaptable AI prompts for everyday lessons.", href: "https://lenguajelabs-design.github.io/Language-Support-Toolkit./#/", asset: "language-support-toolkit-logo.png", logoClass: "app-card-logo app-card-logo-toolkit", image: "photography/classroom-teacher-students.jpg", action: "Explore toolkit" },
   { name: "Classroom Compass", status: "Live", audience: "Teachers", description: "A practical co-created guide for navigating classroom decisions.", href: "https://lenguajelabs-design.github.io/classroom-compass/", asset: "https://lenguajelabs-design.github.io/classroom-compass/classroom-compass-mark.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
 ];
 
@@ -369,7 +369,7 @@ const leadershipContributions = [
   "Make instructional decisions visible.",
   "Strengthen family understanding and partnership.",
   "Structure teacher planning and language support.",
-  "Translate research into professional learning.",
+  "Turn language demands into practical classroom support.",
   "Co-create practical classroom guidance.",
 ];
 
