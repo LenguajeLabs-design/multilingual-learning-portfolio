@@ -104,9 +104,9 @@ function Ecosystem() {
         <path d="M50 13 L50 84 M16 49 L84 49" />
       </svg>
 
-      <div className="ecosystem-center" aria-hidden="true">
-        <span>Language</span>
-        <strong>access</strong>
+      <div className="ecosystem-center" aria-live="polite">
+        <span>Language access</span>
+        <strong>{activeNode.verb}</strong>
       </div>
 
       {ecosystemNodes.map((node) => (
@@ -358,10 +358,10 @@ function LiveFamilyGuide() {
 }
 
 const portfolioApps = [
-  { name: "LinguaFlow Teacher", status: "Live", audience: "Teachers", description: "Mentor texts and language analysis for purposeful classroom planning.", href: "https://www.readlinguaflow.com/", asset: "lingua-icon.png", logoClass: "app-card-logo", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
+  { name: "LinguaFlow Teacher", status: "Live", audience: "Teachers", description: "Mentor texts and language analysis for purposeful classroom planning.", href: "https://www.readlinguaflow.com/", asset: "lingua-icon.png", logoClass: "app-card-logo", image: "photography/classroom-teacher-students.jpg", action: "Open project", download: "resources/linguaflow-teacher-introduction.pdf" },
   { name: "My Multilingual Family", status: "Live", audience: "Families", description: "A clearer guide to language development for families.", href: "https://www.mymultilingualfamily.com/", asset: "mmlf-logo.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/family-reading-together.jpg", action: "Open project" },
-  { name: "Scaffold", status: "Live beta", audience: "Teachers", description: "Turn rough teacher input into structured language support.", href: "https://lenguajelabs-design.github.io/scaffold", asset: "scaffold-lockup.png", logoClass: "app-card-logo app-card-logo-light", image: "photography/classroom-teacher-students.jpg", action: "Open beta" },
-  { name: "The Language Support Toolkit", status: "Live", audience: "Teachers", description: "Practical language supports and adaptable AI prompts for everyday lessons.", href: "https://lenguajelabs-design.github.io/Language-Support-Toolkit./#/", asset: "language-support-toolkit-logo.png", logoClass: "app-card-logo app-card-logo-toolkit", image: "photography/classroom-teacher-students.jpg", action: "Explore toolkit" },
+  { name: "Scaffold", status: "Live beta", audience: "Teachers", description: "Turn rough teacher input into structured language support.", href: "https://lenguajelabs-design.github.io/scaffold", asset: "scaffold-lockup.png", logoClass: "app-card-logo app-card-logo-light", image: "photography/classroom-teacher-students.jpg", action: "Open beta", download: "resources/scaffold-teacher-introduction.pdf" },
+  { name: "The Language Support Toolkit", status: "Live", audience: "Teachers", description: "Practical language supports and adaptable AI prompts for everyday lessons.", href: "https://lenguajelabs-design.github.io/Language-Support-Toolkit./#/", asset: "language-support-toolkit-logo.png", logoClass: "app-card-logo app-card-logo-toolkit", image: "photography/classroom-teacher-students.jpg", action: "Explore toolkit", download: "resources/language-support-toolkit-teacher-introduction.pdf" },
   { name: "Classroom Compass", status: "Live", audience: "Teachers", description: "A practical co-created guide for navigating classroom decisions.", href: "https://lenguajelabs-design.github.io/classroom-compass/", asset: "https://lenguajelabs-design.github.io/classroom-compass/classroom-compass-mark.svg", logoClass: "app-card-logo app-card-logo-square", image: "photography/classroom-teacher-students.jpg", action: "Open project" },
 ];
 
@@ -377,7 +377,7 @@ function LeadershipCaseStudies() {
   return (
     <div className="case-study-list" aria-label="Leadership case studies">
       {portfolioApps.map((app, index) => (
-        <a className="case-study-row" href={app.href} key={app.name}>
+        <div className="case-study-row" key={app.name}>
           <span className="case-study-identity">
             <span className={`case-study-logo ${app.logoClass}`}>
               <img src={app.asset.startsWith("http") ? app.asset : `${import.meta.env.BASE_URL}assets/${app.asset}`} alt={`${app.name} logo`} />
@@ -388,8 +388,11 @@ function LeadershipCaseStudies() {
             </span>
           </span>
           <span className="case-study-contribution"><small>Leadership contribution</small><span>{leadershipContributions[index]}</span></span>
-          <span className="case-study-action">{app.action} <b aria-hidden="true">↗</b></span>
-        </a>
+          <span className="case-study-action">
+            <a href={app.href}>{app.action} <b aria-hidden="true">↗</b></a>
+            {app.download && <a className="case-study-download" href={`${import.meta.env.BASE_URL}assets/${app.download}`} download>Teacher introduction ↓</a>}
+          </span>
+        </div>
       ))}
     </div>
   );
