@@ -23,8 +23,13 @@ h1, h2, h3, .wordmark, .about-copy h2, .leadership-intro h2, .leadership-pillars
 .hero-copy h1, .point-copy h2, .about-copy h2, .leadership-intro h2, .directory-heading h2, .credentials-heading h2 { font-weight: 400; letter-spacing: -.055em; }
 .hero-copy h1, .point-copy h2, .about-copy h2, .leadership-intro h2, .directory-heading h2, .credentials-heading h2 { line-height: .98; }
 .topbar { padding-block: 1.1rem; }
+.site-header { grid-template-columns: 1fr auto auto auto; column-gap: 1.2rem; }
 .wordmark { letter-spacing: -.02em; }
 .header-contact { min-height: 2.75rem; display: inline-flex; align-items: center; }
+.language-switcher { display: inline-flex; align-items: center; gap: .18rem; padding: .18rem; border: 1px solid var(--ui-border); border-radius: 999px; }
+.language-switcher button { min-width: 2.15rem; min-height: 1.8rem; padding: .25rem .35rem; border: 0; border-radius: 999px; color: var(--ui-muted); background: transparent; font-size: .58rem; font-weight: 800; letter-spacing: .04em; cursor: pointer; }
+.language-switcher button:hover, .language-switcher button:focus-visible { color: var(--ui-text); background: rgba(255,255,255,.65); outline: none; }
+.language-switcher button.is-active { color: var(--paper-bright); background: var(--ui-text); }
 .hero-section { min-height: auto; padding-block: clamp(4.5rem, 10vw, 8rem) clamp(4rem, 8vw, 6rem); }
 .hero-copy { max-width: 39rem; }
 .hero-copy h1 { max-width: 10ch; margin-bottom: 1.5rem; }
@@ -55,6 +60,19 @@ h1, h2, h3, .wordmark, .about-copy h2, .leadership-intro h2, .leadership-pillars
 .leadership-pillars span { color: var(--ui-accent); font-size: .68rem; font-weight: 800; letter-spacing: .1em; }
 .leadership-pillars h3 { margin: 1.8rem 0 .5rem; font-family: Georgia, serif; font-size: 1.45rem; font-weight: 400; letter-spacing: -.04em; }
 .leadership-pillars p { margin: 0; color: var(--ui-muted); font-size: .85rem; line-height: 1.45; }
+.capstone-section { padding: clamp(4.5rem, 9vw, 8rem) 0; border-top: 1px solid var(--ui-border); }
+.capstone-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(16rem, .8fr); gap: clamp(2rem, 7vw, 7rem); align-items: end; }
+.capstone-copy { max-width: 46rem; }
+.capstone-copy h2 { max-width: 11ch; margin-top: .65rem; font-size: clamp(2.8rem, 6vw, 5.6rem); }
+.capstone-copy > p:not(.section-index-label) { max-width: 39rem; margin-top: 1.7rem; color: var(--ui-muted); font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.55; }
+.capstone-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
+.capstone-actions a { display: inline-flex; align-items: center; gap: .65rem; padding: .9rem 1rem; border: 1px solid var(--ui-text); color: var(--ui-text); font-size: .7rem; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+.capstone-actions a:first-child { color: var(--paper-bright); background: var(--ui-text); }
+.capstone-actions a:hover { border-color: var(--ui-brass); color: var(--ui-text); background: var(--ui-brass); }
+.capstone-meta { display: flex; flex-direction: column; gap: .8rem; padding: 1.2rem 0 0 1.4rem; border-left: 1px solid var(--ui-border); }
+.capstone-meta span, .capstone-meta small { color: var(--ui-muted); font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.capstone-meta strong { max-width: 18rem; font-family: Georgia, serif; font-size: clamp(1.35rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.15; }
+.capstone-meta small { font-size: .6rem; font-weight: 600; letter-spacing: .05em; line-height: 1.45; }
 .work-intro { padding-block: clamp(4rem, 8vw, 6rem) 2rem; }
 .work-intro > div:last-child { max-width: 38rem; }
 .work-intro h2 { max-width: 11ch; }
@@ -189,8 +207,17 @@ h1, h2, h3, .wordmark, .about-copy h2, .leadership-intro h2, .leadership-pillars
   .leadership-pillars h3 { margin-top: 1rem; }
   .about-section { grid-template-columns: 1fr; gap: 2rem; }
   .about-portrait { width: min(86vw, 30rem); }
+  .capstone-section { padding-block: 4rem; }
+  .capstone-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .capstone-meta { padding: 1.2rem 0 0; border-top: 1px solid var(--ui-border); border-left: 0; }
+  .capstone-actions { flex-direction: column; align-items: stretch; }
+  .capstone-actions a { justify-content: space-between; }
 
   .topbar { gap: 1rem; }
+  .site-header { grid-template-columns: 1fr auto auto; column-gap: .55rem; }
+  .desktop-nav { display: none; }
+  .language-switcher { order: 2; }
+  .header-contact { order: 3; }
   .header-contact { padding-inline: .8rem; }
   .hero-section { padding-top: 3.75rem; }
   .hero-copy h1 { max-width: 9ch; }

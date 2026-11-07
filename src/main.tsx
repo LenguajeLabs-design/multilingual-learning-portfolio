@@ -5,6 +5,66 @@ import "./styles.css";
 import "./compact-ui.css";
 
 type EcosystemKey = "students" | "families" | "teachers" | "systems";
+type Language = "en" | "es" | "zh" | "ko";
+
+const languageLabels: Record<Language, string> = {
+  en: "EN",
+  es: "ES",
+  zh: "中文",
+  ko: "한국어",
+};
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    work: "Work", leadership: "Leadership", approach: "Approach", about: "About", conversation: "Start a conversation",
+    eyebrow: "English-language learning leader · EAL educator", hero: "Building stronger systems for multilingual learners.",
+    intro: "I connect classroom practice, teacher development, family partnership, and practical tools so English-language learning becomes more coherent across a school.",
+    explore: "Explore the work", approachLink: "See my approach", meet: "Meet the person behind the work", proof: "15+ years across international classrooms, teacher development, family communication, and multilingual learning systems.",
+    point: "Multilingual learners are not behind. They are building language, identity, confidence, and academic access at the same time.", pointBody: "Good support does not simplify the learner. It makes the path into rigorous learning more visible—and gives the people around that learner clearer ways to help.",
+    leadershipTitle: "Coherence across language, learning, and people.", leadershipBody: "I help schools make the needs of multilingual learners visible—and turn that visibility into shared practice, stronger support, and clearer next steps.",
+    research: "Research & capstone", capstoneTitle: "From scores to shared understanding.", capstoneBody: "An action-research project developed through the Multilingual Learning Research Center, translating WIDA language-development information into a clearer resource for teachers, families, and school leaders.", read: "Read the capstone", visit: "Visit My Multilingual Family",
+    selected: "Selected leadership work", workTitle: "Ideas made useful for real school communities.", workBody: "These projects show how I translate language-learning insight into tools, guidance, and shared practice for teachers and families.",
+    caseStudies: "Leadership case studies", caseTitle: "Five projects, five ways to strengthen language-learning systems.", caseBody: "Explore the work by the leadership contribution it represents.", credentials: "Credentials", credentialsTitle: "Classroom depth. Systems perspective.", aboutTitle: "English-language leader. Builder of coherent systems.",
+  },
+  es: {
+    work: "Trabajo", leadership: "Liderazgo", approach: "Enfoque", about: "Sobre mí", conversation: "Iniciar una conversación",
+    eyebrow: "Líder de aprendizaje del inglés · Educador EAL", hero: "Construyo sistemas más sólidos para estudiantes multilingües.",
+    intro: "Conecto la práctica en el aula, el desarrollo docente, la colaboración con las familias y herramientas prácticas para que el aprendizaje del inglés sea más coherente en toda la escuela.", explore: "Explorar el trabajo", approachLink: "Ver mi enfoque", meet: "Conoce a la persona detrás del trabajo", proof: "Más de 15 años en aulas internacionales, desarrollo docente, comunicación con familias y sistemas de aprendizaje multilingüe.", point: "Los estudiantes multilingües no están atrasados. Están construyendo lenguaje, identidad, confianza y acceso académico al mismo tiempo.", pointBody: "El apoyo adecuado no simplifica al estudiante. Hace más visible el camino hacia un aprendizaje riguroso y ofrece a quienes lo acompañan formas más claras de ayudar.", leadershipTitle: "Coherencia entre lenguaje, aprendizaje y personas.", leadershipBody: "Ayudo a las escuelas a visibilizar las necesidades de los estudiantes multilingües y convertirlas en prácticas compartidas, apoyos más sólidos y próximos pasos claros.", research: "Investigación y proyecto final", capstoneTitle: "De las puntuaciones a la comprensión compartida.", capstoneBody: "Un proyecto de investigación-acción que convierte la información sobre el desarrollo lingüístico en un recurso más claro para docentes, familias y líderes escolares.", read: "Leer el proyecto", visit: "Visitar My Multilingual Family", selected: "Trabajo de liderazgo seleccionado", workTitle: "Ideas útiles para comunidades escolares reales.", workBody: "Estos proyectos muestran cómo convierto ideas sobre el aprendizaje de idiomas en herramientas, orientación y prácticas compartidas.", caseStudies: "Casos de liderazgo", caseTitle: "Cinco proyectos para fortalecer los sistemas de aprendizaje lingüístico.", caseBody: "Explora el trabajo según la contribución de liderazgo que representa.", credentials: "Credenciales", credentialsTitle: "Profundidad en el aula. Perspectiva sistémica.", aboutTitle: "Líder de aprendizaje del inglés. Constructor de sistemas coherentes.",
+  },
+  zh: {
+    work: "项目", leadership: "领导力", approach: "方法", about: "关于我", conversation: "开始交流",
+    eyebrow: "英语语言学习领导者 · EAL 教育者", hero: "为多语学习者建立更强的支持系统。", intro: "我连接课堂实践、教师发展、家庭合作与实用工具，让英语语言学习在学校中更加连贯。", explore: "探索我的项目", approachLink: "了解我的方法", meet: "认识项目背后的我", proof: "拥有超过 15 年国际课堂、教师发展、家庭沟通与多语学习系统经验。", point: "多语学习者并不是落后者。他们正在同时建立语言、身份、信心与学术参与能力。", pointBody: "好的支持不会简化学习者，而是让通往严谨学习的路径更加清晰，也让身边的人知道如何提供帮助。", leadershipTitle: "让语言、学习与人形成连贯的系统。", leadershipBody: "我帮助学校看见多语学习者的需求，并将这些需求转化为共同实践、更强的支持与清晰的下一步。", research: "研究与毕业项目", capstoneTitle: "从分数到共同理解。", capstoneBody: "一项行动研究项目，将语言发展信息转化为教师、家庭和学校领导者更容易理解和使用的资源。", read: "阅读项目", visit: "访问 My Multilingual Family", selected: "精选领导力工作", workTitle: "让想法服务于真实的学校社区。", workBody: "这些项目展示了我如何把语言学习洞见转化为工具、指导与共同实践。", caseStudies: "领导力案例", caseTitle: "五个项目，五种强化语言学习系统的方式。", caseBody: "按项目所体现的领导力贡献浏览这些工作。", credentials: "资历", credentialsTitle: "深厚的课堂经验。系统性的视角。", aboutTitle: "英语语言学习领导者。连贯系统的建设者。",
+  },
+  ko: {
+    work: "프로젝트", leadership: "리더십", approach: "접근 방식", about: "소개", conversation: "대화 시작하기",
+    eyebrow: "영어 학습 리더 · EAL 교육자", hero: "다언어 학습자를 위한 더 강한 시스템을 만듭니다.", intro: "교실 실천, 교사 성장, 가족 협력, 실용적인 도구를 연결하여 학교 전체의 영어 학습을 더욱 일관되게 만듭니다.", explore: "프로젝트 보기", approachLink: "접근 방식 보기", meet: "이 일을 만든 사람 만나기", proof: "국제 교실, 교사 개발, 가족 소통, 다언어 학습 시스템 분야에서 15년 이상의 경험을 쌓았습니다.", point: "다언어 학습자는 뒤처진 것이 아닙니다. 그들은 언어, 정체성, 자신감, 학업 참여를 동시에 만들어 가고 있습니다.", pointBody: "좋은 지원은 학습자를 단순화하지 않습니다. 깊이 있는 학습으로 가는 길을 더 분명하게 만들고, 주변 사람들이 도울 수 있는 방법을 보여 줍니다.", leadershipTitle: "언어, 학습, 사람을 하나의 시스템으로 연결합니다.", leadershipBody: "학교가 다언어 학습자의 필요를 분명히 보고, 이를 공동의 실천과 더 강한 지원, 명확한 다음 단계로 바꾸도록 돕습니다.", research: "연구 및 캡스톤", capstoneTitle: "점수에서 공동의 이해로.", capstoneBody: "언어 발달 정보를 교사, 가족, 학교 리더가 더 쉽게 이해하고 활용할 수 있는 자료로 바꾼 실행 연구 프로젝트입니다.", read: "프로젝트 읽기", visit: "My Multilingual Family 방문", selected: "주요 리더십 프로젝트", workTitle: "실제 학교 공동체에 도움이 되는 아이디어.", workBody: "이 프로젝트들은 언어 학습에 대한 통찰을 도구, 안내, 공동 실천으로 연결하는 방식을 보여 줍니다.", caseStudies: "리더십 사례", caseTitle: "언어 학습 시스템을 강화하는 다섯 가지 프로젝트.", caseBody: "각 프로젝트가 보여 주는 리더십 기여를 기준으로 살펴보세요.", credentials: "자격", credentialsTitle: "교실의 깊이. 시스템적 관점.", aboutTitle: "영어 학습 리더. 일관된 시스템의 설계자.",
+  },
+};
+
+const extraTranslations: Record<Language, Record<string, string>> = {
+  en: {
+    students: "Students", families: "Families", teachers: "Teachers", systems: "Systems", participate: "Participate", understand: "Understand", act: "Act", connect: "Connect",
+    program: "Program coherence", teacherDevelopment: "Teacher development", familyPartnership: "Family partnership", evidence: "Evidence into action", leadershipContribution: "Leadership contribution", openProject: "Open project", live: "Live", liveBeta: "Live beta", teachersAudience: "Teachers", familiesAudience: "Families", aboutFederico: "About Federico",
+  },
+  es: {
+    students: "Estudiantes", families: "Familias", teachers: "Docentes", systems: "Sistemas", participate: "Participar", understand: "Comprender", act: "Actuar", connect: "Conectar",
+    program: "Coherencia del programa", teacherDevelopment: "Desarrollo docente", familyPartnership: "Colaboración familiar", evidence: "De la evidencia a la acción", leadershipContribution: "Contribución de liderazgo", openProject: "Abrir proyecto", live: "Activo", liveBeta: "Beta activa", teachersAudience: "Docentes", familiesAudience: "Familias", aboutFederico: "Sobre Federico",
+  },
+  zh: {
+    students: "学生", families: "家庭", teachers: "教师", systems: "系统", participate: "参与", understand: "理解", act: "行动", connect: "连接",
+    program: "项目连贯性", teacherDevelopment: "教师发展", familyPartnership: "家庭合作", evidence: "从证据到行动", leadershipContribution: "领导力贡献", openProject: "打开项目", live: "上线", liveBeta: "测试版", teachersAudience: "教师", familiesAudience: "家庭", aboutFederico: "关于 Federico",
+  },
+  ko: {
+    students: "학생", families: "가족", teachers: "교사", systems: "시스템", participate: "참여", understand: "이해", act: "실천", connect: "연결",
+    program: "프로그램의 일관성", teacherDevelopment: "교사 성장", familyPartnership: "가족 협력", evidence: "근거에서 실천으로", leadershipContribution: "리더십 기여", openProject: "프로젝트 열기", live: "운영 중", liveBeta: "베타 운영", teachersAudience: "교사", familiesAudience: "가족", aboutFederico: "Federico 소개",
+  },
+};
+
+function useSiteLanguage() {
+  const [language, setLanguage] = useState<Language>(() => (localStorage.getItem("site-language") as Language) || "en");
+  useEffect(() => { document.documentElement.lang = language === "zh" ? "zh-Hans" : language; localStorage.setItem("site-language", language); }, [language]);
+  return { language, setLanguage, t: (key: string) => extraTranslations[language][key] || translations[language][key] || extraTranslations.en[key] || translations.en[key] || key };
+}
 
 type EcosystemNode = {
   id: EcosystemKey;
@@ -68,7 +128,7 @@ function Arrow({ direction = "right" }: { direction?: "right" | "down" }) {
   );
 }
 
-function Ecosystem() {
+function Ecosystem({ t }: { t: (key: string) => string }) {
   const [active, setActive] = useState<EcosystemKey>("teachers");
   const stageRef = useRef<HTMLDivElement>(null);
   const activeNode = useMemo(
@@ -121,14 +181,14 @@ function Ecosystem() {
         >
           <span className="node-index">{node.index}</span>
           <span className="node-copy">
-            <strong>{node.label}</strong>
-            <small>{node.verb}</small>
+            <strong>{t(node.id)}</strong>
+            <small>{t(node.verb.toLowerCase())}</small>
           </span>
         </button>
       ))}
 
       <p className="ecosystem-thought" aria-live="polite">
-        <span>{activeNode.label}</span>
+        <span>{t(activeNode.id)}</span>
         {activeNode.thought}
       </p>
     </div>
@@ -373,7 +433,7 @@ const leadershipContributions = [
   "Co-create practical classroom guidance.",
 ];
 
-function LeadershipCaseStudies() {
+function LeadershipCaseStudies({ t }: { t: (key: string) => string }) {
   return (
     <div className="case-study-list" aria-label="Leadership case studies">
       {portfolioApps.map((app, index) => (
@@ -384,12 +444,12 @@ function LeadershipCaseStudies() {
             </span>
             <span>
               <strong>{app.name}</strong>
-              <small><i className={app.status === "Live beta" ? "is-beta" : ""} />{app.status} <b>·</b> {app.audience}</small>
+              <small><i className={app.status === "Live beta" ? "is-beta" : ""} />{app.status === "Live beta" ? t("liveBeta") : t("live")} <b>·</b> {app.audience === "Teachers" ? t("teachersAudience") : t("familiesAudience")}</small>
             </span>
           </span>
-          <span className="case-study-contribution"><small>Leadership contribution</small><span>{leadershipContributions[index]}</span></span>
+          <span className="case-study-contribution"><small>{t("leadershipContribution")}</small><span>{leadershipContributions[index]}</span></span>
           <span className="case-study-action">
-            <a href={app.href}>{app.action} <b aria-hidden="true">↗</b></a>
+            <a href={app.href}>{t("openProject")} <b aria-hidden="true">↗</b></a>
             {app.download && <a className="case-study-download" href={`${import.meta.env.BASE_URL}assets/${app.download}`} download>Teacher introduction ↓</a>}
           </span>
         </div>
@@ -399,6 +459,7 @@ function LeadershipCaseStudies() {
 }
 
 function App() {
+  const { language, setLanguage, t } = useSiteLanguage();
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -434,13 +495,20 @@ function App() {
             Federico Orozco<span>.</span>
           </a>
           <nav className="desktop-nav" aria-label="Primary navigation">
-            <a href="#work">Work</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#approach">Approach</a>
-            <a href="#about">About</a>
+            <a href="#work">{t("work")}</a>
+            <a href="#leadership">{t("leadership")}</a>
+            <a href="#approach">{t("approach")}</a>
+            <a href="#about">{t("about")}</a>
           </nav>
+          <div className="language-switcher" aria-label="Choose language">
+            {(["en", "es", "zh", "ko"] as Language[]).map((option) => (
+              <button key={option} type="button" className={language === option ? "is-active" : ""} aria-pressed={language === option} onClick={() => setLanguage(option)}>
+                {languageLabels[option]}
+              </button>
+            ))}
+          </div>
           <a className="header-contact" href="mailto:forozc1@gmail.com">
-            <span className="contact-long">Start a conversation</span>
+            <span className="contact-long">{t("conversation")}</span>
             <span className="contact-short">Email</span>
             <span aria-hidden="true">↗</span>
           </a>
@@ -448,21 +516,19 @@ function App() {
 
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow hero-eyebrow">English-language learning leader · EAL educator</p>
+            <p className="eyebrow hero-eyebrow">{t("eyebrow")}</p>
             <h1 id="hero-title">
-              Building stronger systems
-              <span>for multilingual learners.</span>
+              {t("hero").split(" ").slice(0, 3).join(" ")} <span>{t("hero").split(" ").slice(3).join(" ")}</span>
             </h1>
             <p className="hero-intro">
-              I connect classroom practice, teacher development, family partnership, and practical
-              tools so English-language learning becomes more coherent across a school.
+              {t("intro")}
             </p>
             <div className="hero-actions">
               <a className="button button-light" href="#work">
-                Explore the work <Arrow direction="down" />
+                {t("explore")} <Arrow direction="down" />
               </a>
               <a className="text-link text-link-light" href="#approach">
-                See my approach <span aria-hidden="true">↗</span>
+                {t("approachLink")} <span aria-hidden="true">↗</span>
               </a>
             </div>
             <a className="hero-person" href="#about" aria-label="About Federico Orozco">
@@ -473,19 +539,18 @@ function App() {
                 height="800"
               />
               <span>
-                <small>Meet the person behind the work</small>
+                <small>{t("meet")}</small>
                 <strong>Federico Orozco</strong>
                 <em>Educator · Program thinker · Learning designer</em>
               </span>
               <b aria-hidden="true">↘</b>
             </a>
             <p className="hero-proof">
-              15+ years across international classrooms, teacher development, family communication,
-              and multilingual learning systems.
+              {t("proof")}
             </p>
           </div>
 
-          <Ecosystem />
+          <Ecosystem t={t} />
         </div>
 
         <div className="hero-foot" aria-hidden="true">
@@ -502,12 +567,10 @@ function App() {
         </div>
         <div className="point-copy" data-reveal>
           <h2 id="point-title">
-            Multilingual learners are not behind. They are building
-            <em> language, identity, confidence,</em> and academic access at the same time.
+            {t("point")}
           </h2>
           <p>
-            Good support does not simplify the learner. It makes the path into rigorous learning
-            more visible—and gives the people around that learner clearer ways to help.
+            {t("pointBody")}
           </p>
         </div>
         <p className="point-transition" data-reveal>
@@ -522,31 +585,52 @@ function App() {
           <p>Leadership focus</p>
         </div>
         <div className="leadership-intro" data-reveal>
-          <h2 id="leadership-title">Coherence across language, learning, and people.</h2>
-          <p>
-            I help schools make the needs of multilingual learners visible—and turn that visibility
-            into shared practice, stronger support, and clearer next steps.
-          </p>
+          <h2 id="leadership-title">{t("leadershipTitle")}</h2>
+          <p>{t("leadershipBody")}</p>
         </div>
         <div className="leadership-pillars" data-reveal>
-          <article><span>01</span><h3>Program coherence</h3><p>Connect language support across classrooms, grade levels, and the wider school experience.</p></article>
-          <article><span>02</span><h3>Teacher development</h3><p>Design practical professional learning that helps teachers notice language and act on it.</p></article>
-          <article><span>03</span><h3>Family partnership</h3><p>Make language development easier for families to understand, discuss, and support.</p></article>
-          <article><span>04</span><h3>Evidence into action</h3><p>Use learner needs, classroom insight, and research to guide thoughtful decisions.</p></article>
+          <article><span>01</span><h3>{t("program")}</h3><p>Connect language support across classrooms, grade levels, and the wider school experience.</p></article>
+          <article><span>02</span><h3>{t("teacherDevelopment")}</h3><p>Design practical professional learning that helps teachers notice language and act on it.</p></article>
+          <article><span>03</span><h3>{t("familyPartnership")}</h3><p>Make language development easier for families to understand, discuss, and support.</p></article>
+          <article><span>04</span><h3>{t("evidence")}</h3><p>Use learner needs, classroom insight, and research to guide thoughtful decisions.</p></article>
+        </div>
+      </section>
+
+      <section className="capstone-section" id="research" aria-labelledby="capstone-title">
+        <div className="section-index" data-reveal>
+          <span>03</span>
+          <p>{t("research")}</p>
+        </div>
+        <div className="capstone-layout" data-reveal>
+          <div className="capstone-copy">
+            <p className="section-index-label">MLRC Action Research Capstone</p>
+            <h2 id="capstone-title">{t("capstoneTitle")}</h2>
+            <p>{t("capstoneBody")}</p>
+            <div className="capstone-actions">
+              <a href="/assets/resources/suzhou-singapore-mlrc-capstone.pdf" download>
+                {t("read")} <span aria-hidden="true">↓</span>
+              </a>
+              <a href="https://www.mymultilingualfamily.com/" target="_blank" rel="noreferrer">
+                {t("visit")} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+          <div className="capstone-meta">
+            <span>Research in practice</span>
+            <strong>Making language-development information easier to understand and use.</strong>
+            <small>MLRC Action Research Capstone · Suzhou Singapore International School</small>
+          </div>
         </div>
       </section>
 
       <section className="work-intro" id="work" aria-labelledby="work-title">
         <div className="section-index section-index-dark" data-reveal>
           <span>03</span>
-          <p>Selected leadership work</p>
+          <p>{t("selected")}</p>
         </div>
         <div data-reveal>
-          <h2 id="work-title">Ideas made useful for real school communities.</h2>
-          <p>
-            These projects show how I translate language-learning insight into tools, guidance, and
-            shared practice for teachers and families.
-          </p>
+          <h2 id="work-title">{t("workTitle")}</h2>
+          <p>{t("workBody")}</p>
           <div className="compact-project-links" aria-label="Selected projects">
             <a href="https://www.readlinguaflow.com/" target="_blank" rel="noreferrer">LinguaFlow Teacher ↗</a>
             <a href="https://lenguajelabs-design.github.io/scaffold" target="_blank" rel="noreferrer">Scaffold beta ↗</a>
@@ -558,18 +642,18 @@ function App() {
       <section className="app-directory" aria-labelledby="directory-title">
         <div className="directory-heading">
           <div>
-            <p className="section-index-label">Leadership case studies</p>
-            <h2 id="directory-title">Five projects, five ways to strengthen language-learning systems.</h2>
+            <p className="section-index-label">{t("caseStudies")}</p>
+            <h2 id="directory-title">{t("caseTitle")}</h2>
           </div>
-          <p>Explore the work by the leadership contribution it represents.</p>
+          <p>{t("caseBody")}</p>
         </div>
-        <LeadershipCaseStudies />
+        <LeadershipCaseStudies t={t} />
       </section>
 
       <section className="compact-credentials" aria-labelledby="credentials-title">
         <div className="credentials-heading">
-          <p className="section-index-label">Credentials</p>
-          <h2 id="credentials-title">Classroom depth. Systems perspective.</h2>
+          <p className="section-index-label">{t("credentials")}</p>
+          <h2 id="credentials-title">{t("credentialsTitle")}</h2>
         </div>
         <div className="credentials-grid">
           <div className="credential-chip"><span><strong>M.A. in TEFL</strong><small>Nova Southeastern University</small></span></div>
@@ -786,8 +870,8 @@ function App() {
           <span aria-hidden="true">FO.</span>
         </div>
         <div className="about-copy" data-reveal>
-          <p className="about-kicker">About Federico</p>
-          <h2 id="about-title">English-language leader. Builder of coherent systems.</h2>
+          <p className="about-kicker">{t("aboutFederico")}</p>
+          <h2 id="about-title">{t("aboutTitle")}</h2>
           <p>
             I’m an English-language learning leader and EAL educator with more than 15 years across
             international classrooms, teacher development, family communication, and learning systems.
