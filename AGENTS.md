@@ -1,21 +1,26 @@
 # Portfolio design and content rules
 
-This site presents Federico Orozco as an English-language learning leader, EAL educator, and systems thinker. Every update must strengthen that position.
+This site presents Federico Orozco as “EAL Specialist · Learning Designer.” Use that label consistently. Summary: “I design practical tools, teacher learning, and family resources, many of them AI-powered, that help schools serve multilingual learners.”
 
 ## Visual system
 
 - Use Heritage Navy as the foundation: deep navy `#102642`, warm ivory `#F5F0E7`, soft blue `#9BAFC4`, and muted brass `#B59A67`.
 - Do not reintroduce brown as a primary action color, bright blue, neon accents, gradients, glassmorphism, or unrelated decorative palettes.
-- Use only two type roles: Georgia / Times New Roman for editorial display text, and Helvetica Neue / Helvetica / Arial for interface and body text.
+- Use only two self-hosted type roles: Source Serif 4 for editorial display text and Inter for interface and body text. Fonts and their licenses live in public/fonts.
 - Do not add another font family without an explicit design decision.
 - Prefer thin rules, generous whitespace, calm surfaces, and clear hierarchy over dense cards or ornamental effects.
 
 ## Positioning
 
-- Lead with English-language learning leadership, program coherence, teacher development, family partnership, and evidence-informed practice.
+- Lead with EAL expertise, learning design, teacher development, family partnership, and evidence-informed practice.
+- Keep the page order: hero, proof strip, point of view, work, leadership focus, research/capstone, approach, experience/credentials, about/contact, footer.
+- Use one shared .container for gutters and maximum width. Remove section numbers rather than showing an incomplete sequence.
+- Keep the hero center label fixed as “The learner”; give the hero CTA room in the first desktop viewport.
 - Present apps and tools as leadership case studies and evidence of systems thinking—not as a software marketplace.
 - Do not invent metrics, titles, degrees, awards, testimonials, clients, or outcomes.
-- Keep credentials accurate: professional development must not be presented as a degree or formal credential.
+- Keep credentials accurate: Harvard courses must say “Professional Education” and must not be presented as degrees. Keep the shield beside that course group only.
+- Leave testimonials and unverified project evidence disabled with TODO comments until supplied.
+- Keep the email address centralized in contactEmail until a custom-domain address is confirmed.
 
 ## Project display
 
