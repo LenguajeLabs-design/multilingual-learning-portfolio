@@ -13,7 +13,8 @@ The revised design uses self-hosted Source Serif 4 and Inter, shared containers 
 - Browser layouts checked at 1440×900, 1280×800, 1024×900, 768×1024, 390×844, and 375×812.
 - No horizontal overflow found. Main desktop CTA is inside the first viewport; active links meet the 24px minimum.
 - All five project URLs return HTTP 200, including redirects to scaffolded.app and languagesupporttoolkit.app.
-- Three teacher introductions, capstone, and résumé each return HTTP 200 locally.
+- Three teacher introductions and the capstone are public downloads. Their contact text and mailto links use hello@federicoorozco.co.
+- The full résumé was moved outside the repository to a private local folder. Header and experience actions now open a CV-request email instead of a PDF.
 - Three self-hosted WOFF2 files each return HTTP 200 locally.
 - Project tiles use identical dimensions, padding, borders and corner radii. Optimized PNG marks are approximately 9–14 KB each.
 - Only LinkedIn links use a new tab. My Multilingual Family has exactly two outgoing links: its project row and the capstone.
@@ -24,11 +25,11 @@ LinkedIn rejects automated HTTP requests; its supplied profile URL is preserved.
 
 ## Content decisions and TODOs
 
-- Numbers and experience/course descriptions come from the supplied revision brief, not inferred achievements.
+- User-confirmed figures supersede the brief: 17 years in language education, 20,000+ students taught, and 100+ Korean English teachers trained. The proof strip pairs those three teaching figures with the family guide’s 7 languages.
 - Harvard courses are grouped and explicitly labeled Professional Education, separate from degrees.
 - A genuine family-guide interface screenshot already exists and is available through an expandable preview. Other tool screenshots remain TODOs.
 - Toolkit and Compass evidence remain TODOs. Testimonials render nothing until approved quotes, names and roles are supplied.
-- Gmail is centralized in contactEmail. A custom-domain address is still unconfirmed.
+- The confirmed contact address hello@federicoorozco.co is centralized in contactEmail for all contact links and structured metadata.
 - Section numbers were removed throughout; the four Approach step numbers remain.
 - Exact supplied copy was prioritized where it conflicts with the two-use limit on “practical”: the supplied hero, focus title, course title, About paragraph, and reusable summary all contain that word. “Coherent/coherence” was removed; “visible” appears only in the supplied Approach heading.
 
@@ -45,11 +46,12 @@ LinkedIn rejects automated HTTP requests; its supplied profile URL is preserved.
 | Accessibility | 4 | Semantic landmarks, visible focus, pressed states and reduced motion. No full assistive-technology audit claimed. |
 | Performance | 4 | Smaller logos, no external font requests, and much less legacy CSS. No Lighthouse score claimed. |
 
-The diagram is the signature interaction; the typography and project rows carry the editorial identity. The next improvements depend on content: add current tool screenshots, obtain colleague quotes, and confirm the contact address.
+The diagram is the signature interaction; the typography and project rows carry the editorial identity. The next improvements depend on content: add current tool screenshots and obtain colleague quotes.
 
 ## Screenshots
 
 Captures include the page content area; scrollbar exclusion can make image pixels slightly narrower than the CSS viewport.
+These captures predate the corrected teaching figures, confirmed email, and CV-on-request change.
 
 - [Desktop overview](previews/revision/desktop-overview.jpg)
 - [1440px](previews/revision/1440-hero.jpg)

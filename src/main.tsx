@@ -4,9 +4,8 @@ import "./styles.css";
 import "./compact-ui.css";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
-const resume = `${import.meta.env.BASE_URL}resources/federico-orozco-resume.pdf`;
-// TODO: Confirm a custom-domain email address before replacing Gmail.
-const contactEmail = "forozc1@gmail.com";
+const contactEmail = "hello@federicoorozco.co";
+const cvRequest = `mailto:${contactEmail}?subject=CV%20request`;
 const linkedIn = "https://www.linkedin.com/in/federico-orozco-m-a-687b5431/";
 const profileLabel = "EAL Specialist · Learning Designer";
 const summary = "I design practical tools, teacher learning, and family resources, many of them AI-powered, that help schools serve multilingual learners.";
@@ -109,7 +108,7 @@ function Testimonials() {
 }
 
 const focus = [
-  { title: "Teacher development", description: "Design professional learning that helps teachers notice language and act on it.", evidence: "500+ teachers trained in Seoul · 5–6 PD sessions led at SSIS" },
+  { title: "Teacher development", description: "Design professional learning that helps teachers notice language and act on it.", evidence: "100+ teachers trained in Seoul · 5–6 PD sessions led at SSIS" },
   { title: "Family partnership", description: "Make language development easier for families to understand and support at home.", evidence: "Monthly subject word banks sent home · Family guide in 7 languages" },
   { title: "Practical tools", description: "Build tools that turn language research into classroom-ready support.", evidence: "5 tools built · 3 in use at SSIS" },
   { title: "Evidence into action", description: "Use assessment data and research to guide decisions.", evidence: "MLRC action-research capstone on WIDA scores · 2 years as an iTEP proficiency rater" },
@@ -128,7 +127,7 @@ const roles = [
   { date: "2017 — 2019 · Remote", title: "English Proficiency Assessment Rater", school: "iTEP International", tile: "iTEP",
     description: "Scored spoken English for the ECAT assessment using standardized rubrics, with ongoing calibration for inter-rater reliability." },
   { date: "2011 — 2019 · South Korea", title: "Head Teacher Trainer", school: "Seoul Metropolitan Office of Education", logo: "credentials/smoe.png",
-    description: "Taught intensive English programs for students, then moved into teacher training: trained 500+ Korean English teachers through monthly two-week programs, designed 3–4 training programs (including one for vice principals), and mentored 8–10 native English-speaking trainers." },
+    description: "Taught intensive English programs for students, then moved into teacher training: trained 100+ Korean English teachers through monthly two-week programs, designed 3–4 training programs (including one for vice principals), and mentored 8–10 native English-speaking trainers." },
 ];
 const courses = [
   { name: "WIDA Writing Institute: Writing with Multilingual Learners", institution: "Wisconsin Center for Education Products and Services (WCEPS), UW–Madison", year: "2026" },
@@ -148,7 +147,7 @@ function App() {
     <a className="skip-link" href="#work">Skip to selected work</a>
     <header className="site-header container" id="top">
       <a className="wordmark" href="#top">Federico Orozco<span>.</span></a>
-      <nav className="main-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#about">About</a><a href={resume}>Résumé</a></nav>
+      <nav className="main-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#about">About</a><a href={cvRequest}>Request CV</a></nav>
       <a className="header-contact" href={`mailto:${contactEmail}`}><span className="contact-long">Start a conversation</span><span className="contact-short">Email</span><span aria-hidden="true">↗</span></a>
     </header>
     <main>
@@ -156,14 +155,14 @@ function App() {
         <div className="hero-copy">
           <p className="eyebrow hero-eyebrow">{profileLabel}</p>
           <h1 id="hero-title">Practical tools and teacher learning <em>for multilingual learners.</em></h1>
-          <p className="hero-intro">I'm an EAL specialist with 15+ years in language education across Korea and China. I design tools, training, and family resources, many of them AI-powered, that turn language research into what teachers and families can use on Monday.</p>
+          <p className="hero-intro">I'm an EAL specialist with 17 years in language education across Korea and China. I design tools, training, and family resources, many of them AI-powered, that turn language research into what teachers and families can use on Monday.</p>
           <div className="hero-actions"><a className="button" href="#work">Explore the work <span aria-hidden="true">↓</span></a><a className="text-link" href="#approach">See my approach <span aria-hidden="true">↗</span></a></div>
-          <a className="hero-person" href="#about"><img src={asset("federico-orozco-headshot.jpeg")} alt="" width="64" height="64" /><span><strong>Federico Orozco</strong><small>{profileLabel}</small><small>15+ years in language education across Korea and China.</small></span></a>
+          <a className="hero-person" href="#about"><img src={asset("federico-orozco-headshot.jpeg")} alt="" width="64" height="64" /><span><strong>Federico Orozco</strong><small>{profileLabel}</small><small>17 years in language education across Korea and China.</small></span></a>
         </div>
         <Ecosystem />
       </section>
       <section className="proof-strip container" aria-label="Experience and work in numbers">
-        {[["15+", "years in language education"], ["500+", "Korean English teachers trained"], ["7", "languages in the family guide"], ["5", "tools launched for teachers and families"]].map(([number, label]) => <div key={label}><strong>{number}</strong><span>{label}</span></div>)}
+        {[["17", "years in language education"], ["20,000+", "students taught"], ["100+", "Korean English teachers trained"], ["7", "languages in the family guide"]].map(([number, label]) => <div key={label}><strong>{number}</strong><span>{label}</span></div>)}
       </section>
       <section className="point-of-view section container" aria-labelledby="point-title">
         <p className="eyebrow section-label">Point of view</p>
@@ -187,7 +186,7 @@ function App() {
       </section>
       <section className="approach-band" id="approach" aria-labelledby="approach-title"><div className="section container"><p className="eyebrow">Approach</p><h2 id="approach-title">Find the friction. Make the next move visible.</h2><ol className="approach-grid">{approach.map((item) => <li key={item.title}><h3>{item.title}</h3><p>{item.description}</p></li>)}</ol></div></section>
       <section className="experience-section section container" id="experience" aria-labelledby="experience-title">
-        <div className="section-heading"><div><p className="eyebrow">Experience &amp; credentials</p><h2 id="experience-title">Classroom depth.<br /><em>A wider perspective.</em></h2></div><div><p>More than 15 years in language education: teacher training, classroom teaching, language assessment, and EAL support in South Korea and China.</p><a className="text-link resume-link" href={resume} download>Download résumé <span aria-hidden="true">↓</span></a></div></div>
+        <div className="section-heading"><div><p className="eyebrow">Experience &amp; credentials</p><h2 id="experience-title">Classroom depth.<br /><em>A wider perspective.</em></h2></div><div><p>17 years in language education: teacher training, classroom teaching, language assessment, and EAL support in South Korea and China.</p><a className="text-link resume-link" href={cvRequest}>Full CV available on request <span aria-hidden="true">↗</span></a></div></div>
         <div className="experience-grid">
           <div><h3 className="eyebrow column-label">Selected experience</h3><ol className="timeline">{roles.map((role) => <li key={role.title}><div className="experience-logo">{role.logo ? <img src={asset(role.logo)} alt={`${role.school} logo`} width="72" height="72" /> : <span>{role.tile}</span>}</div><div><p className="role-date">{role.date}</p><h4>{role.title}</h4><p className="institution">{role.school}</p><p className="role-description">{role.description}</p></div></li>)}</ol><p className="earlier-career"><strong>Earlier career · 2006 — 2009 · Chicago</strong>Multilingual data analysis (Spanish &amp; Italian) at Accuity and editorial research management at Schofield Media.</p></div>
           <div className="education-column"><h3 className="eyebrow column-label">Education &amp; professional learning</h3><h4 className="group-title">Degrees</h4>
@@ -201,7 +200,7 @@ function App() {
       </section>
       <section className="about-section section container" id="about" aria-labelledby="about-title">
         <div className="about-portrait"><img src={asset("federico-orozco-headshot.jpeg")} alt="Federico Orozco" width="800" height="800" loading="lazy" /></div><div><p className="eyebrow">About Federico</p><h2 id="about-title">Classroom teacher.<br /><em>Learning designer.</em></h2>
-          <p className="section-description">I'm an EAL specialist and learning designer with more than 15 years in language education, after an earlier career in multilingual research and data.</p><p className="section-description">I connect pedagogy, research, and practical design to help schools serve multilingual learners, building tools, teacher learning, and family resources that people actually use.</p>
+          <p className="section-description">I'm an EAL specialist and learning designer with 17 years in language education, after an earlier career in multilingual research and data.</p><p className="section-description">I connect pedagogy, research, and practical design to help schools serve multilingual learners, building tools, teacher learning, and family resources that people actually use.</p>
           <div className="about-links"><a className="button" href={`mailto:${contactEmail}`}>Start a conversation <span aria-hidden="true">↗</span></a><a className="text-link" href={linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>

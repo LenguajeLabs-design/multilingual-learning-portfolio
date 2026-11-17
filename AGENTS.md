@@ -20,7 +20,9 @@ This site presents Federico Orozco as “EAL Specialist · Learning Designer.”
 - Do not invent metrics, titles, degrees, awards, testimonials, clients, or outcomes.
 - Keep credentials accurate: Harvard courses must say “Professional Education” and must not be presented as degrees. Keep the shield beside that course group only.
 - Leave testimonials and unverified project evidence disabled with TODO comments until supplied.
-- Keep the email address centralized in contactEmail until a custom-domain address is confirmed.
+- Use the confirmed contact address hello@federicoorozco.co, centralized in contactEmail for all contact links and structured metadata.
+- Keep the full CV private and available on request; do not restore a résumé PDF under public/. The site may show the approved professional timeline and credentials.
+- Use the user-confirmed figures: 17 years in language education, 20,000+ students taught, and 100+ Korean English teachers trained.
 
 ## Project display
 

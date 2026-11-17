@@ -346,7 +346,7 @@ Keep as a compact, school-neutral supporting story. Describe the general problem
 | Product screenshots | Partial | EALDesk and family-guide captures are usable as references; Scaffold primary capture must be replaced |
 | LinkedIn | Yes | Present in existing portfolio |
 | GitHub | Yes | `LenguajeLabs-design` organization/profile link present |
-| Contact email | Yes | Existing portfolio uses `forozc1@gmail.com`; Scaffold also displays a different product email, so use context-specific addresses |
+| Contact email | Yes | Confirmed portfolio contact is `hello@federicoorozco.co`; use context-specific addresses for separate products |
 
 ## Status vocabulary for the new portfolio
 

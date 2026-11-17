@@ -22,7 +22,7 @@ The page contains a hero, proof strip, point of view, five project rows, leaders
 - `src/compact-ui.css`: tablet, mobile, and reduced-motion rules.
 - `public/fonts/`: self-hosted Inter and Source Serif 4 with OFL licenses.
 - `public/assets/resources/`: teacher introductions and the capstone.
-- `public/resources/`: résumé download.
+- The full CV is kept outside this repository and offered by email on request; no résumé PDF is published.
 
 Read [AGENTS.md](AGENTS.md) for ongoing design/content rules and [the revision review](docs/revision-review.md) for verification and outstanding content.
 

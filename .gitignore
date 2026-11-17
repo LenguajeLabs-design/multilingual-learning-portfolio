@@ -3,3 +3,7 @@ dist/
 .DS_Store
 *.log
 *.tsbuildinfo
+
+# Local document originals and editing previews must not be published.
+/docs/reference/
+/tmp/
