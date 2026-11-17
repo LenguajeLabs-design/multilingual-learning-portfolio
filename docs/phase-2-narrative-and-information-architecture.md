@@ -643,5 +643,5 @@ Project screenshots should appear immediately after each problem statement on mo
 
 - [x] Hero introduction approved through progression into Phase 3.
 - [x] Action research, My Multilingual Family, and LinguaFlow Family approved as one connected flagship story.
-- [x] Primary portfolio contact confirmed as `forozc1@gmail.com`.
+- [x] Current primary portfolio contact confirmed as `hello@federicoorozco.co`.
 - [x] Supporting project confirmed as LinguaFlow Teacher, focused exclusively on teacher-created mentor texts; the learner platform will become Lingua Bridge and remains outside this MVP.

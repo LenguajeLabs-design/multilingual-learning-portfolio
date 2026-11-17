@@ -1,34 +1,29 @@
-# Multilingual Learning Portfolio
+# Federico Orozco — portfolio
 
-An immersive portfolio for Federico Orozco's research, educational products, and practical systems for multilingual learners, families, and teachers.
+EAL Specialist · Learning Designer.
 
-## Project status
+I design practical tools, teacher learning, and family resources, many of them AI-powered, that help schools serve multilingual learners.
 
-**Phase 1: foundation and source audit** and **Phase 2: narrative and information architecture** are complete. **Phase 3: visual concept and interaction prototype** now includes a working vertical slice of the immersive hero and first flagship story.
+## Local review
 
-The current source-of-truth audit is maintained in [`docs/phase-1-source-audit.md`](docs/phase-1-source-audit.md).
-
-The proposed MVP narrative, sitemap, and copy are maintained in [`docs/phase-2-narrative-and-information-architecture.md`](docs/phase-2-narrative-and-information-architecture.md).
-
-The Phase 3 concept, implementation notes, verification, and previews are maintained in [`docs/phase-3-visual-prototype.md`](docs/phase-3-visual-prototype.md).
-
-## Local prototype
-
-```bash
-npm install
-npm run dev
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1 --port 4182
 ```
 
-Production verification:
+Build with `npm run build`. The current revision is on `codex/portfolio-feedback`; changes to this branch do not deploy GitHub Pages.
 
-```bash
-npm run build
-```
+## Structure
 
-![Phase 3 desktop preview](docs/previews/phase-3-desktop.jpg)
+The page contains a hero, proof strip, point of view, five project rows, leadership evidence, capstone, approach, experience and credentials, About/contact, and footer.
 
-## Working direction
+- `src/main.tsx`: approved copy, project links, experience, course data, and the centralized contact email.
+- `src/styles.css`: shared containers, fonts, palette, typography, and component styling.
+- `src/compact-ui.css`: tablet, mobile, and reduced-motion rules.
+- `public/fonts/`: self-hosted Inter and Source Serif 4 with OFL licenses.
+- `public/assets/resources/`: teacher introductions and the capstone.
+- The full CV is kept outside this repository and offered by email on request; no résumé PDF is published.
 
-**Make language visible.**
+Read [AGENTS.md](AGENTS.md) for ongoing design/content rules and [the revision review](docs/revision-review.md) for verification and outstanding content.
 
-The MVP will connect Federico's work across four audiences—students, families, teachers, and school systems—while using three flagship stories to demonstrate how research and classroom experience become practical products.
+Historical design phases remain under `docs/` for reference; they are not current copy specifications.

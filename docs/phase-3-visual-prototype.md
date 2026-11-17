@@ -59,7 +59,7 @@ The **Language Access Ecosystem** is the portfolio's signature interaction.
 - Research-to-product orbital diagram.
 - Research-to-action family product journey.
 - Carefully qualified early-feedback evidence.
-- Confirmed portfolio email: `forozc1@gmail.com`.
+- Current confirmed portfolio email: `hello@federicoorozco.co`.
 - GitHub Pages-compatible base path.
 
 ## Previews
@@ -129,7 +129,7 @@ Motion is not required for reading, navigation, or understanding. Under `prefers
 - Mobile hero and vertical ecosystem visually inspected at a 390-pixel viewport.
 - All four ecosystem controls render and update the active explanation.
 - Family interface asset loads successfully.
-- Contact link resolves to `mailto:forozc1@gmail.com`.
+- Contact link resolves to `mailto:hello@federicoorozco.co`.
 - No horizontal overflow at inspected desktop or mobile viewports.
 - Fresh desktop and mobile verification tabs produced no console warnings or errors.
 
