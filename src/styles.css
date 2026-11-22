@@ -136,6 +136,14 @@ em { font-weight: 400; }
 .project-preview { margin-top: .6rem; }
 .project-preview summary { width: fit-content; padding-block: .4rem; font-size: .68rem; text-decoration: underline; text-underline-offset: .3em; }
 .project-preview img { margin-top: .5rem; border: 1px solid var(--line); }
+
+.resource-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1.5rem, 5vw, 5rem); }
+.resource-item { display: grid; grid-template-columns: clamp(5rem, 26%, 9rem) minmax(0, 1fr); align-items: start; gap: clamp(1rem, 2vw, 1.5rem); border-top: 1px solid var(--line); padding-block: 1.4rem; }
+.resource-image { width: 100%; border: 1px solid var(--line); }
+.resource-item figcaption { margin-top: .35rem; color: var(--muted); font-size: .58rem; }
+.resource-copy h3 { margin-top: .25rem; font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.12; }
+.resource-copy > p:not(.eyebrow) { margin-block: .65rem .95rem; color: var(--muted); font-size: .88rem; }
+.resource-note { display: block; width: fit-content; margin-top: .75rem; white-space: normal; }
 .focus-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.7rem; }
 .focus-grid article { display: flex; flex-direction: column; border-top: 1px solid var(--gold); padding-top: 1.2rem; }
 .focus-grid h3 { font-size: 1.55rem; line-height: 1.1; letter-spacing: -.025em; }
