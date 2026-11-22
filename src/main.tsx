@@ -140,6 +140,15 @@ function ClassroomResources() {
             <a className="text-link resource-note" href={asset("resources/space-explorer-field-notes.pdf")}>Read the teacher field notes (PDF) <span aria-hidden="true">↗</span></a>
           </div>
         </article>
+        <article className="resource-item">
+          <img className="resource-image" src={asset("resources/earth-explorers-atmosphere.jpg")} alt="Illustration of Earth's curved horizon and atmosphere" width="340" height="480" loading="lazy" />
+          <div className="resource-copy">
+            <p className="eyebrow">Grade 4 science</p>
+            <h3>Earth Explorers</h3>
+            <p>Four illustrated readers about Earth’s spheres, with paragraph-by-paragraph support in Japanese, Korean, and Simplified Chinese, plus read-aloud audio.</p>
+            <a className="button" href="https://lenguajelabs-design.github.io/Grade-4-The-Earth-Spheres/">Open Earth Explorers <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
       </div>
     </section>
   );
