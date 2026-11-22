@@ -99,6 +99,52 @@ function ProjectRows() {
   ))}</div>;
 }
 
+const books = [
+  {
+    title: "Word Bank Games",
+    description: "50 low-prep vocabulary games for elementary multilingual learners, with scaffolds for WIDA levels 2–3, a game picker, and printable templates.",
+    cover: "word-bank-games-cover.jpg",
+    pdf: "word-bank-games.pdf",
+  },
+];
+
+function ClassroomResources() {
+  return (
+    <section className="section container" id="resources" aria-labelledby="resources-title">
+      <div className="section-heading">
+        <div><h2 id="resources-title">Classroom resources</h2></div>
+        <p>Teaching handbooks and learning materials for multilingual classrooms.</p>
+      </div>
+      <div className="resource-list">
+        {books.map((book) => (
+          <article className="resource-item" key={book.title}>
+            <img className="resource-image" src={asset(`resources/${book.cover}`)} alt="" width="340" height="480" loading="lazy" />
+            <div className="resource-copy">
+              <p className="eyebrow">Free teacher handbook</p>
+              <h3>{book.title}</h3>
+              <p>{book.description}</p>
+              <a className="button" href={asset(`resources/${book.pdf}`)} download aria-label={`Download ${book.title} (PDF)`}>Download PDF <span aria-hidden="true">↓</span></a>
+            </div>
+          </article>
+        ))}
+        <article className="resource-item">
+          <figure>
+            <img className="resource-image" src={asset("resources/space-explorer-moon.jpg")} alt="The near side of Earth's Moon" width="340" height="480" loading="lazy" />
+            <figcaption>NASA / GSFC / ASU</figcaption>
+          </figure>
+          <div className="resource-copy">
+            <p className="eyebrow">Grade 5 science</p>
+            <h3>Space Explorer</h3>
+            <p>Five science readers with real photographs, home-language support, read-aloud tools, and printable PDFs.</p>
+            <a className="button" href="https://lenguajelabs-design.github.io/Grade-5-Science-Unit-Researching-Space/">Open Space Explorer <span aria-hidden="true">↗</span></a>
+            <a className="text-link resource-note" href={asset("resources/space-explorer-field-notes.pdf")}>Read the teacher field notes (PDF) <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
 // TODO: Supply 1–2 approved quotes with name and role. Empty by design: no placeholder quotes can ship.
 const approvedTestimonials: { quote: string; name: string; role: string }[] = [];
 function Testimonials() {
@@ -147,7 +193,7 @@ function App() {
     <a className="skip-link" href="#work">Skip to selected work</a>
     <header className="site-header container" id="top">
       <a className="wordmark" href="#top">Federico Orozco<span>.</span></a>
-      <nav className="main-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#about">About</a><a href={cvRequest}>Request CV</a></nav>
+      <nav className="main-nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#resources">Resources</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="#about">About</a><a href={cvRequest}>Request CV</a></nav>
       <a className="header-contact" href={`mailto:${contactEmail}`}><span className="contact-long">Start a conversation</span><span className="contact-short">Email</span><span aria-hidden="true">↗</span></a>
     </header>
     <main>
@@ -172,6 +218,7 @@ function App() {
         <div className="section-heading"><div><p className="eyebrow">Selected work</p><h2 id="work-title">Five projects, five ways to support multilingual learners.</h2></div><p>Tools and resources shaped by classroom teaching, teacher learning, and conversations with families.</p></div>
         <ProjectRows />
       </section>
+      <ClassroomResources />
       <Testimonials />
       <section className="focus-section section container" id="leadership" aria-labelledby="focus-title">
         <div className="section-heading"><div><p className="eyebrow">Leadership focus</p><h2 id="focus-title">From experience to shared practice.</h2></div><p>Teacher learning, family partnership, and tools built around the needs of a school.</p></div>

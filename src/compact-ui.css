@@ -22,6 +22,7 @@
 @media (max-width: 800px) {
   .site-header { min-height: 108px; padding-block: 1rem .5rem; grid-template-columns: 1fr auto; gap: .6rem; }
   .main-nav { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: .5rem; }
+  .main-nav { flex-wrap: wrap; }
   .main-nav a { font-size: .68rem; min-height: 36px; }
   .header-contact { grid-column: 2; grid-row: 1; min-height: 32px; }
   .hero h1 { font-size: 3.1rem; }
@@ -46,6 +47,7 @@
   .project-logo { flex-basis: 64px; width: 64px; height: 64px; padding: 7px; border-radius: 14px; }
   .case-study-identity { gap: .9rem; }
   .project-description { font-size: .74rem; }
+  .resource-list { grid-template-columns: 1fr; }
   .capstone-layout { grid-template-columns: 1fr; gap: 2rem; }
   .capstone-note { max-width: 32rem; }
   .approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem; margin-top: 2rem; }
